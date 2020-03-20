@@ -45,7 +45,7 @@ class App extends React.Component {
           </div>
           <div></div>
           <div>
-            <button>Buscar</button>
+            <button>Buscar en mi casa</button>
           </div>
           <div></div>
         </div>
