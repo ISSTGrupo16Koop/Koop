@@ -7,7 +7,7 @@ export default class SubjectList extends React.Component {
   render() {
     return (
       <div>
-        <ul>{this.props.subjects[0].subject}</ul>
+        <ul>{this.props.subjects[this.props.subjects.length - 1].subject}</ul>
       </div>
     );
   }

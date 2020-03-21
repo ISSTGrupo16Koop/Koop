@@ -7,7 +7,10 @@ export default class SearchBar extends React.Component {
   render() {
     return (
       <div>
-        <input onChange={event => this.props.onSubject({ event })} />
+        <input
+          placeholder="Asignatura"
+          onChange={event => this.props.onSubject(event.target.value)}
+        />
       </div>
     );
   }

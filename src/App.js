@@ -1,7 +1,5 @@
 import React from "react";
 import esloganKoopap from "./esloganKoopap.png";
-import subjects from "./assets/mock-data.js";
-import professors from "./assets/mock-dataProf.js";
 import "./App.css";
 import SearchBar from "./components/SearchBar";
 import SubjectList from "./components/SubjectList";
@@ -13,14 +11,14 @@ class App extends React.Component {
   constructor(props) {
     super(props);
   }
-
+  /*
   componentDidMount() {
     subjects = this.subjects;
     professors = this.professors;
     this.props.dispatch(initSubjects(subjects));
     this.props.dispatch(initProfessors(professors));
   }
-
+*/
   render() {
     return (
       <div className="App">
@@ -43,11 +41,16 @@ class App extends React.Component {
           <div>
             <img src={esloganKoopap} className="App-logo" alt="logo" />
           </div>
-          <div></div>
+          <SearchBar
+            onSubject={subject => {
+              this.props.dispatch(subjectSearch(subject));
+            }}
+          />
+
           <div>
-            <button>Buscar en mi casa</button>
+            <button>Buscar</button>
           </div>
-          <div></div>
+          <SubjectList subjects={this.props.subjects} />
         </div>
       </div>
     );

@@ -5,18 +5,16 @@ const defaultState = { data: null, error: null };
 
 function subjects(state = [], action = {}) {
   switch (action.type) {
-    /*
-    case ADD_SUBJECT:
+    case SUBJECT_SEARCH:
       return state.map((subject, i) => {
         return {
           ...subject,
           userAnswer:
             action.payload.index === i
-              ? action.payload.answer
-              : question.userAnswer
+              ? action.payload.subject
+              : subject.userAnswer
         };
-	  });
-	  */
+      });
     case INIT_SUBJECTS:
       state = action.payload.subjects;
       return state;

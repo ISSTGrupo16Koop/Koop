@@ -10,8 +10,8 @@ export default class ReduxProvider extends React.Component {
   constructor(props) {
     super(props);
     this.initialState = {
-      subjects: [],
-      professors: []
+      subjects: subjects,
+      professors: professors
     };
     this.store = this.configureStore();
   }
