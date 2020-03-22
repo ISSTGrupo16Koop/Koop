@@ -35,7 +35,7 @@ class App extends React.Component {
                 <Link to="/logIn">Iniciar sesión</Link>
               </li>
               <li>
-                <Link to="/singIn">Sing In</Link>
+                <Link to="/singIn">Registrarse</Link>
               </li>
             </ul>
           </nav>
