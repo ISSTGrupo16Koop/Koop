@@ -10,6 +10,8 @@ import { subjectSearch, initProfessors, initSubjects } from "./redux/actions";
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    // this.subjectSearch = this.subjectSearch.bind(this);
   }
   /*
   componentDidMount() {
@@ -19,6 +21,7 @@ class App extends React.Component {
     this.props.dispatch(initProfessors(professors));
   }
 */
+
   render() {
     return (
       <div className="App">
@@ -46,9 +49,8 @@ class App extends React.Component {
               this.props.dispatch(subjectSearch(subject));
             }}
           />
-
           <div>
-            <button>Buscar</button>
+            <button onClick={this.search}>Buscar</button>
           </div>
           <SubjectList subjects={this.props.subjects} />
         </div>
