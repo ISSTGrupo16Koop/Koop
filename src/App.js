@@ -3,6 +3,9 @@ import esloganKoopap from "./esloganKoopap.png";
 import "./App.css";
 import SearchBar from "./components/SearchBar";
 import SubjectList from "./components/SubjectList";
+import LogIn from "./components/LogIn";
+import SingIn from "./components/SingIn";
+import Homepage from "./components/Homepage";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { subjectSearch, initProfessors, initSubjects } from "./redux/actions";
@@ -11,8 +14,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.subjectSearch = this.subjectSearch.bind(this);
+    this.subjectSearch = this.subjectSearch.bind(this);
   }
+
+  subjectSearch(subject) {
+    this.props.dispatch(subjectSearch(subject));
+  }
+
   /*
   componentDidMount() {
     subjects = this.subjects;
@@ -39,21 +47,15 @@ class App extends React.Component {
               </li>
             </ul>
           </nav>
-        </Router>
-        <div className="image">
-          <div>
-            <img src={esloganKoopap} className="App-logo" alt="logo" />
-          </div>
-          <SearchBar
-            onSubject={subject => {
-              this.props.dispatch(subjectSearch(subject));
+          <Route
+            path="/"
+            render={props => {
+              return <Homepage subjects={this.props.subjects} />;
             }}
           />
-          <div>
-            <button onClick={this.search}>Buscar</button>
-          </div>
-          <SubjectList subjects={this.props.subjects} />
-        </div>
+          <Route path="/logIn" exact component={LogIn} />
+          <Route path="/SingIn" exact component={SingIn} />
+        </Router>
       </div>
     );
   }
