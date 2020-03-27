@@ -2,7 +2,13 @@ import React from "react";
 export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
+    this.subjectSearchOriginal=this.subjectSearchOriginal.bind(this);
   }
+
+subjectSearchOriginal(){
+
+  this.props.subjectSearchHome();
+}
 
   render() {
     return (

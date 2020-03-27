@@ -5,6 +5,13 @@ import SubjectList from "./SubjectList";
 export default class Homepage extends React.Component {
   constructor(props) {
     super(props);
+    this.subjectSearchHome=this.subjectSearchHome.bind(this);
+  }
+
+  subjectSearchHome(){
+
+    this.props.subjectSearchApp();
+
   }
 
   render() {
@@ -15,7 +22,7 @@ export default class Homepage extends React.Component {
         </div>
         <SearchBar
           onSubject={subject => {
-            this.subjectSearch(subject);
+            this.subjectSearchHome(subject);
           }}
         />
         <div>

@@ -1,11 +1,13 @@
 import { combineReducers } from "redux";
-import { SUBJECT_SEARCH, INIT_PROFESSORS, INIT_SUBJECTS } from "./actions";
+import { SUBJECT_SEARCH, INIT_PROFESSORS, INIT_SUBJECTS, subjectSearch} from "./actions";
 
 const defaultState = { data: null, error: null };
 
 function subjects(state = [], action = {}) {
   switch (action.type) {
     case SUBJECT_SEARCH:
+     
+      console.log(SUBJECT_SEARCH.payload);
       return state.map((subject, i) => {
         return {
           ...subject,
@@ -13,11 +15,13 @@ function subjects(state = [], action = {}) {
             action.payload.index === i
               ? action.payload.subject
               : subject.userAnswer
+        
         };
-      });
+            });
     case INIT_SUBJECTS:
       state = action.payload.subjects;
       return state;
+    
 
     default:
       return state;

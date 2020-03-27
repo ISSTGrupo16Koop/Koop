@@ -14,11 +14,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.subjectSearch = this.subjectSearch.bind(this);
+    this.subjectSearchApp = this.subjectSearchApp.bind(this);
   }
 
-  subjectSearch(subject) {
-    this.props.dispatch(subjectSearch(subject));
+  subjectSearchApp() {
+    console.log("changed");
+    this.props.dispatch(subjectSearch(this.props.subject));
   }
 
   /*
@@ -50,7 +51,9 @@ class App extends React.Component {
           <Route
             path="/"
             render={props => {
-              return <Homepage subjects={this.props.subjects} />;
+              return <Homepage subjects={this.props.subjects} 
+                               subjectSearchApp={this.subjectSearchApp}
+                               />;
             }}
           />
           <Route path="/logIn" exact component={LogIn} />
