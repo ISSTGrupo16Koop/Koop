@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { SUBJECT_SEARCH, INIT_PROFESSORS, INIT_SUBJECTS } from "./actions";
+import { SUBJECT_SEARCH, INIT_PROFESSORS, INIT_SUBJECTS, SUBMIT} from "./actions";
 
 const defaultState = { data: null, error: null };
 
@@ -18,7 +18,7 @@ function subjects(state = [], action = {}) {
     case INIT_SUBJECTS:
       state = action.payload.subjects;
       return state;
-
+    
     default:
       return state;
   }
@@ -38,7 +38,7 @@ function professors(state = [], action = {}) {
         };
 	  });
 	  */
-    case INIT_PROFESSORS:
+    case INIT_PROFESSORS: 
       state = action.payload.professors;
       return state;
 

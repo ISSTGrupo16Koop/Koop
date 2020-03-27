@@ -21,6 +21,9 @@ class App extends React.Component {
     this.props.dispatch(subjectSearch(subject));
   }
 
+  /*valueToState =() =>{
+    this.setState
+  }
   /*
   componentDidMount() {
     subjects = this.subjects;

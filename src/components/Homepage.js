@@ -19,7 +19,7 @@ export default class Homepage extends React.Component {
           }}
         />
         <div>
-          <button onClick={this.search}>Buscar</button>
+          <button type ="submit" onClick={this.search}>Buscar</button>
         </div>
         <SubjectList subjects={this.props.subjects} />
       </div>
