@@ -7,17 +7,14 @@ function subjects(state = [], action = {}) {
   switch (action.type) {
     case SUBJECT_SEARCH:
      
-      console.log(SUBJECT_SEARCH.payload);
-      return state.map((subject, i) => {
-        return {
-          ...subject,
-          userAnswer:
-            action.payload.index === i
-              ? action.payload.subject
-              : subject.userAnswer
-        
-        };
-            });
+      console.log(action.subject);
+      return [
+        ...state,
+        {
+          id: subjects[subjects.length + 1],
+          subject: action.subject
+        }
+      ] 
     case INIT_SUBJECTS:
       state = action.payload.subjects;
       return state;
