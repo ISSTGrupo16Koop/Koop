@@ -3,7 +3,7 @@ import "./App.css";
 import LogIn from "./components/LogIn";
 import SingIn from "./components/SingIn";
 import Homepage from "./components/Homepage";
-import { HashRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { subjectSearch, initProfessors, initSubjects } from "./redux/actions";
 
@@ -31,48 +31,33 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <Router>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Inicio</Link>
-              </li>
-              <li>
-                <Link to="/logIn">Iniciar sesión</Link>
-              </li>
-              <li>
-                <Link to="/singIn">Registrarse</Link>
-              </li>
-            </ul>
-          </nav>
-          <Route
-            path="/"
-            render={props => {
-              return (
-                <div>
-                  <div>
-                    <input
-                      placeholder="Asignatura"
-                      onChange={event =>
-                        this.subjectSearchApp(event.target.value)
-                      }
-                    />
-                  </div>
-                  <div>
-                    <Homepage
-                      subjects={this.props.subjects}
-                      subjectSearchHome={this.subjectSearchApp}
-                    />
-                  </div>
-                </div>
-              );
-            }}
-          />
-          <Route path="/logIn" exact component={LogIn} />
-          <Route path="/SingIn" exact component={SingIn} />
-        </Router>
-      </div>
+      <Router>
+        <ul>
+          <li>
+            <Link to="/">Inicio</Link>
+          </li>
+          <li>
+            <Link to="/logIn">Iniciar sesión</Link>
+          </li>
+          <li>
+            <Link to="/singIn">Registrarse</Link>
+          </li>
+        </ul>
+        <Switch>
+          <Route exact path="/">
+            <Homepage
+              subjects={this.props.subjects}
+              subjectSearchHome={this.subjectSearchApp}
+            />
+          </Route>
+          <Route path="/logIn">
+            <LogIn />
+          </Route>
+          <Route path="/singIn">
+            <SingIn />
+          </Route>
+        </Switch>
+      </Router>
     );
   }
 }
@@ -83,3 +68,23 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(App);
+/*
+
+                  <div>
+                    <input
+                      placeholder="Asignatura"
+                      onChange={event =>
+                        this.subjectSearchApp(event.target.value)
+                      }
+                    />
+                  </div>
+                  <div>
+                    <form onSubmit={value => this.subjectSearchApp(value)}>
+                      <label>
+                        Asignatura:
+                        <input type="text" subject="subject" />
+                      </label>
+                      <input type="submit" value="Submit" />
+                    </form>
+                  </div>
+                  */

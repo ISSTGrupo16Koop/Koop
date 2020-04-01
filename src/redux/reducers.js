@@ -8,15 +8,7 @@ function subjects(state = [], action = {}) {
     case SUBJECT_SEARCH:
       console.log("la recibe el reducer");
       console.log({ action });
-      return state.map((subject, i) => {
-        return {
-          ...subject,
-          userAnswer:
-            action.payload.index === i
-              ? action.payload.subject
-              : subject.userAnswer
-        };
-      });
+      return state.concat([{ id: state.length, subject: action.payload }]);
     case INIT_SUBJECTS:
       state = action.payload.subjects;
       return state;
