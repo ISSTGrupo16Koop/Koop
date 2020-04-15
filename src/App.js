@@ -7,6 +7,7 @@ import logIn from "./components/LogIn";
 import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { subjectSearch, initProfessors, initSubjects, loggedIn } from "./redux/actions";
+import { combineReducers } from "redux";
 
 class App extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class App extends React.Component {
 
     this.subjectSearchApp = this.subjectSearchApp.bind(this);
     this.logApp=this.logApp.bind(this);
+    this.logOut=this.logOut.bind(this);
   }
 
   subjectSearchApp(subject) {
@@ -27,6 +29,10 @@ class App extends React.Component {
     this.props.dispatch(loggedIn(true));
   } 
 
+  logOut(){
+    this.props.dispatch(loggedIn(false));
+  }
+
   /*
   componentDidMount() {
     subjects = this.subjects;
@@ -39,20 +45,20 @@ class App extends React.Component {
   
 
 render() {
-  if(true){
+  if(this.props.isLogged === false){
   return (
 
       <Router>
     
           <ul>
             <li>
-              <Link to="/">Inicio</Link>
+              <Link to="/" replace>Inicio</Link>
             </li>
             <li>
-            <Link to="/logIn">Iniciar sesión</Link>
+            <Link to="/logIn" replace>Iniciar sesión</Link>
             </li>
             <li>
-              <Link to="/singIn">Registrarse</Link>
+              <Link to="/singIn" replace>Registrarse</Link>
             </li>
           </ul>
        <Switch> 
@@ -63,8 +69,9 @@ render() {
                   />
           </Route>
         <Route path="/logIn">
-          
-           <LogIn />
+            <LogIn
+              logApp={this.logApp}
+            />
         </Route>
         <Route path="/singIn">
            <SingIn />
@@ -77,10 +84,11 @@ render() {
       <Router>
         <ul>
           <li>
-            <Link to="/">Inicio</Link>
+            <Link to="/" replace>Inicio</Link>
           </li>
           <li>
-            <Link to="/profile">Perfil</Link>
+            <Link to="/profile" replace>Perfil</Link>
+           
           </li>
         </ul>
         <Switch>
@@ -89,7 +97,10 @@ render() {
               subjects={this.props.subjects}
               subjectSearchHome={this.subjectSearchApp}
               />
-
+               <div>
+            <button type="button" onClick={this.logOut}>Salir</button>
+            </div>
+            
           </Route>
         </Switch>
       </Router>

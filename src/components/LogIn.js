@@ -1,4 +1,5 @@
 import React from "react";
+
 export default class LogIn extends React.Component {
   constructor(props) {
     super(props);
@@ -16,9 +17,11 @@ export default class LogIn extends React.Component {
         <form>
           <input placeholder="Usuario" />
           <input placeholder="Contraseña" />
-          <button type="submit" onClick={this.props.log}>Iniciar Sesion</button>
+          <button type="button" onClick={this.log}>Iniciar Sesión</button>
         </form>
       </div>
     );
+    }
+    
+
   }
-}

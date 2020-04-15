@@ -51,12 +51,13 @@ function professors(state = [], action = {}) {
   }
 }
 
-function isLogged(state = [], action = {} ){
+function isLogged(state = false, action = {} ){
   switch (action.type){
 
     case LOGGED_IN:
       console.log("la recibe el reducer");
-      state.isLogged = true;
+      console.log(state)
+      state= action.payload;
       console.log(state)
       return state;
     
