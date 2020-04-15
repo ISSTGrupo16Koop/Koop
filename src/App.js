@@ -3,12 +3,8 @@ import "./App.css";
 import LogIn from "./components/LogIn";
 import SingIn from "./components/SingIn";
 import Homepage from "./components/Homepage";
-<<<<<<< HEAD
 import logIn from "./components/LogIn";
 import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
-=======
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
->>>>>>> 411dbbb316d0088f9c272f210974f0e7560a30ab
 import { connect } from "react-redux";
 import { subjectSearch, initProfessors, initSubjects, loggedIn } from "./redux/actions";
 
@@ -84,14 +80,7 @@ render() {
             <Link to="/">Inicio</Link>
           </li>
           <li>
-<<<<<<< HEAD
             <Link to="/profile">Perfil</Link>
-=======
-            <Link to="/logIn">Iniciar sesión</Link>
-          </li>
-          <li>
-            <Link to="/singIn">Registrarse</Link>
->>>>>>> 411dbbb316d0088f9c272f210974f0e7560a30ab
           </li>
         </ul>
         <Switch>
@@ -99,18 +88,8 @@ render() {
             <Homepage
               subjects={this.props.subjects}
               subjectSearchHome={this.subjectSearchApp}
-<<<<<<< HEAD
               />
 
-=======
-            />
-          </Route>
-          <Route path="/logIn">
-            <LogIn />
-          </Route>
-          <Route path="/singIn">
-            <SingIn />
->>>>>>> 411dbbb316d0088f9c272f210974f0e7560a30ab
           </Route>
         </Switch>
       </Router>
