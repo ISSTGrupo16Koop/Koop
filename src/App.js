@@ -10,7 +10,6 @@ import { subjectSearch, initProfessors, initSubjects } from "./redux/actions";
 class App extends React.Component {
   constructor(props) {
     super(props);
-
     //this.subjectSearchApp = this.subjectSearchApp.bind(this);
   }
 
@@ -63,7 +62,7 @@ class App extends React.Component {
 }
 function mapStateToProps(state) {
   return {
-    ...state
+    ...state,
   };
 }
 
