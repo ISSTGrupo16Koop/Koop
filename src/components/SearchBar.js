@@ -21,7 +21,7 @@ export default class SearchBar extends React.Component {
           />
         </div>
         <div>
-          <button onClick={console.log("click")}>Buscar</button>
+          <button>Buscar</button>
         </div>
       </div>
     );
