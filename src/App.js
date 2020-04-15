@@ -1,26 +1,31 @@
 import React from "react";
-import esloganKoopap from "./esloganKoopap.png";
 import "./App.css";
-import SearchBar from "./components/SearchBar";
-import SubjectList from "./components/SubjectList";
 import LogIn from "./components/LogIn";
 import SingIn from "./components/SingIn";
 import Homepage from "./components/Homepage";
-import { HashRouter as Router, Route, Link } from "react-router-dom";
+import logIn from "./components/LogIn";
+import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-import { subjectSearch, initProfessors, initSubjects } from "./redux/actions";
+import { subjectSearch, initProfessors, initSubjects, loggedIn } from "./redux/actions";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.subjectSearchApp = this.subjectSearchApp.bind(this);
+    this.logApp=this.logApp.bind(this);
   }
 
-  subjectSearchApp() {
-    console.log("changed");
-    this.props.dispatch(subjectSearch(this.props.subject));
+  subjectSearchApp(subject) {
+    console.log("Se ha escrito ");
+    console.log("changed", { subject });
+    this.props.dispatch(subjectSearch(subject));
   }
+
+  logApp(){
+    console.log("Se ha escrito");
+    this.props.dispatch(loggedIn(true));
+  } 
 
   /*
   componentDidMount() {
@@ -31,41 +36,71 @@ class App extends React.Component {
   }
 */
 
-  render() {
+  
+
+render() {
+  if(true){
+  return (
+
+      <Router>
+    
+          <ul>
+            <li>
+              <Link to="/">Inicio</Link>
+            </li>
+            <li>
+            <Link to="/logIn">Iniciar sesión</Link>
+            </li>
+            <li>
+              <Link to="/singIn">Registrarse</Link>
+            </li>
+          </ul>
+       <Switch> 
+        <Route exact path="/">
+                  <Homepage
+                    subjects={this.props.subjects}
+                    subjectSearchHome={this.subjectSearchApp}
+                  />
+          </Route>
+        <Route path="/logIn">
+          
+           <LogIn />
+        </Route>
+        <Route path="/singIn">
+           <SingIn />
+        </Route>
+        </Switch>
+      </Router>
+  );
+  }else{
     return (
-      <div className="App">
-        <Router>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Inicio</Link>
-              </li>
-              <li>
-                <Link to="/logIn">Iniciar sesión</Link>
-              </li>
-              <li>
-                <Link to="/singIn">Registrarse</Link>
-              </li>
-            </ul>
-          </nav>
-          <Route
-            path="/"
-            render={props => {
-              return <Homepage subjects={this.props.subjects} 
-                               subjectSearchApp={this.subjectSearchApp}
-                               />;
-            }}
-          />
-          <Route path="/logIn" exact component={LogIn} />
-          <Route path="/SingIn" exact component={SingIn} />
-        </Router>
-      </div>
+      <Router>
+        <ul>
+          <li>
+            <Link to="/">Inicio</Link>
+          </li>
+          <li>
+            <Link to="/profile">Perfil</Link>
+          </li>
+        </ul>
+        <Switch>
+          <Route exact path="/">
+            <Homepage
+              subjects={this.props.subjects}
+              subjectSearchHome={this.subjectSearchApp}
+              />
+
+          </Route>
+        </Switch>
+      </Router>
     );
   }
+}
 }
 function mapStateToProps(state) {
   return {
     ...state
   };
 }
+
 export default connect(mapStateToProps)(App);
