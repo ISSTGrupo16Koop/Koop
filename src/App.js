@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
-import LogIn from "./components/LogIn";
 import SingIn from "./components/SingIn";
 import Homepage from "./components/Homepage";
 import logoKoopap from "./assets/logoKoopap.png";
 import Button from "./components/Button";
 
 import Profile from "./components/Profile";
+import LogIn from "./components/LogIn"
 import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import {
@@ -136,7 +136,7 @@ class App extends React.Component {
                 subjectSearchHome={this.subjectSearchApp}
               />
                <div>
-                <button type="button" onClick={this.logOut}>Salir</button> 
+                <Button text="salir" onClick={this.logOut}/> 
                  </div>
             
           </Route>

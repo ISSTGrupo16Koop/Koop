@@ -9,7 +9,7 @@ export default class Homepage extends React.Component {
     super(props);
     this.subjectSearchHome = this.subjectSearchHome.bind(this);
   }
-
+ 
   subjectSearchHome() {
     this.props.subjectSearchApp();
   }

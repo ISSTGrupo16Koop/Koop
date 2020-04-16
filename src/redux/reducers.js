@@ -22,7 +22,6 @@ function subjects(state = [], action = {}) {
       state = action.payload.subjects;
       return state;
     
-
     default:
       return state;
   }
@@ -42,7 +41,7 @@ function professors(state = [], action = {}) {
         };
 	  });
 	  */
-    case INIT_PROFESSORS:
+    case INIT_PROFESSORS: 
       state = action.payload.professors;
       return state;
 
@@ -65,6 +64,7 @@ function isLogged(state = [isLogged], action = {} ){
       default: 
       return state;
   }
+
 
 }
 
