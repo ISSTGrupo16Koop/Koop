@@ -111,7 +111,7 @@ class App extends React.Component {
               />
                <div>
                 <button type="button" onClick={this.logOut}>Salir</button> 
-               </div>
+                 </div>
             
           </Route>
           <Route exact path="/profile">

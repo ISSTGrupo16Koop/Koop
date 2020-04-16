@@ -1,9 +1,7 @@
-function communication() {
-  const Url = "";
-  const Data = {
-    name: "",
-    id: 5,
-  };
+function communication(servlet, form) {
+  const Server = "http://localhost:8080/";
+  const Url = Server + servlet;
+  const Data = form;
 
   const params = {
     headers: {
