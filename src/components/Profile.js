@@ -2,7 +2,7 @@ import React from "react";
 import Profesor from "./Profesor";
 import Alumno from "./Alumno";
 import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
-
+import Button from "./Button"
 
 var perfilalumno= true;
 export default class Profile extends React.Component {
@@ -12,10 +12,6 @@ export default class Profile extends React.Component {
   }
 
   
-  
-
-  
-
   render() {
     
     
@@ -23,7 +19,7 @@ export default class Profile extends React.Component {
     return (
       
           <div>
-            <button type="button" onClick={this.changeProfile}>Cambiar a perfil Profesor</button>
+            <Button type="button" action={this.changeProfile} text=" cambiar a perfil profesor "/>
             <Alumno />
             <Profesor />
           </div>

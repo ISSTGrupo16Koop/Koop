@@ -1,5 +1,6 @@
 import React from "react";
-
+import Button from "./Button"
+import "../css/Cuadrados.css"
 export default class LogIn extends React.Component {
   constructor(props) {
     super(props);
@@ -15,9 +16,9 @@ export default class LogIn extends React.Component {
     return (
       <div>
         <form>
-          <input placeholder="Usuario" />
-          <input placeholder="Contraseña" />
-          <button type="button" onClick={this.log}>Iniciar Sesión</button>
+          <input placeholder="Usuario" class = "redondeado" />
+          <input placeholder="Contraseña" class ="redondeado" />
+          <Button text ="iniciar sesión" action={this.log}/>
         </form>
       </div>
     );

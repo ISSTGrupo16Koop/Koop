@@ -1,13 +1,19 @@
-import React from 'react';
-import "../css/button.css";
-
+import React from "react";
+import "../css/Button.css";
 export default class Button extends React.Component {
-	render() {
-		console.log(this.props.disabled)
-		return (
-			<div>
-				<button class= "button">{this.props.text}</button>
-			</div>
-		);
-	}
-}
+  constructor(props) {
+    super(props);
+
+  }
+
+  
+
+  render() {
+    return (
+        
+		<button class="button" type="button" onClick={this.props.action}>{this.props.text}</button>
+    );
+    }
+    
+
+  }

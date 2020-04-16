@@ -65,6 +65,7 @@ function isLogged(state = [isLogged], action = {} ){
       return state;
   }
 
+
 }
 
 const GlobalState = combineReducers({

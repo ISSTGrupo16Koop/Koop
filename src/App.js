@@ -2,6 +2,9 @@ import React from "react";
 import "./App.css";
 import SingIn from "./components/SingIn";
 import Homepage from "./components/Homepage";
+import logoKoopap from "./assets/logoKoopap.png";
+import Button from "./components/Button";
+
 import Profile from "./components/Profile";
 import LogIn from "./components/LogIn"
 import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
@@ -13,7 +16,7 @@ import {
   loggedIn,
 } from "./redux/actions";
 import { combineReducers } from "redux";
-import Button from "./components/Button"
+
 
 
 class App extends React.Component {
@@ -54,22 +57,45 @@ class App extends React.Component {
     if (this.props.isLogged === false) {
       return (
         <Router>
-          <ul class = "noPoints"> 
+            
+          <ul class="container">
             <li>
               <Link to="/" replace>
-              <Button text={"inicio"}/>
+              <img src={logoKoopap} class= "logo"/>
+               
               </Link>
             </li>
-            <li>
+           
+            
+            <li class="flex-item">
+              <Link to="/" replace>¿qué hacemos?
+              </Link>
+            </li>
+            <li class="flex-item">
+              <Link to="/" replace>top profesores
+              </Link>
+            </li>
+            <li class="flex-item">
+              <Link to="/" replace>preguntas frecuentes
+              </Link>
+            </li>
+            <li class="flex-item">
+              <Link to="/" replace>soporte
+              </Link>
+            </li>
+           
+            
+            <li class="flex-item" >
               <Link to="/logIn" replace>
-              <Button text={"entrar"}/>
+              <Button  text="entrar"/>
               </Link>
             </li>
-            <li>
+            <li class="flex-item">
               <Link to="/singIn" replace>
-              <Button text={"registrarse"}/>
+              <Button  text="registrarse"/>
               </Link>
             </li>
+            
           </ul>
           <Switch>
             <Route exact path="/">
@@ -91,20 +117,16 @@ class App extends React.Component {
       return (
         <Router>
           <ul>
-            <li>
+            <li class="flex-item">
               <Link to="/" replace>
-              <button type="button">
-                Inicio
-               </button>
+              <Button text = "inicio"/>
               </Link>
             </li>
-            <li>
+            <li class="flex-item">
               <Link to="/profile" replace>
-              <button type="button">
-                Mi perfil         
-               </button>
+              <Button text = "perfil"/>
               </Link>
-            </li>
+            </li >
           </ul>
           <Switch>
             <Route exact path="/">
@@ -113,7 +135,7 @@ class App extends React.Component {
                 subjectSearchHome={this.subjectSearchApp}
               />
                <div>
-                <button type="button" onClick={this.logOut}>Salir</button> 
+                <Button text="salir" onClick={this.logOut}/> 
                  </div>
             
           </Route>
