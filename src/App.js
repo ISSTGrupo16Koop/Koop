@@ -116,19 +116,16 @@ class App extends React.Component {
     } else {
       return (
         <Router>
-          <ul>
+          <ul  class="container">
             <li class="flex-item">
               <Link to="/" replace>
-              <button type="button">
-                Inicio
-               </button>
+              <img src={logoKoopap} class= "logo"/>
               </Link>
             </li>
             <li class="flex-item">
               <Link to="/profile" replace>
-              <button type="button">
-                Mi perfil         
-               </button>
+              <Button type="button" text="mi perfil"/>
+               
               </Link>
             </li >
           </ul>

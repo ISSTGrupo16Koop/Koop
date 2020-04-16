@@ -15,22 +15,28 @@ export default class SearchBar extends React.Component {
  
  render() {
  return (
- <div class= "wrap">
- <div class= "search">
- <div >
- <input
- type = "text"
- class="searchTerm"
- placeholder="Asignatura"
- onChange={event => this.props.subjectSearchSB(event.target.value)}
- />
- </div>
- <Button text={"buscar"}/>
- <div>
- 
- </div>
- </div>
- </div>
+    <ul class="searchcontainer">
+        
+               
+                
+        <li class="flex-item">
+            <div class= "search">
+                
+                    <input
+                        type = "text"
+                        class="searchTerm"
+                        placeholder="     ¿qué quieres aprender hoy?"
+                        onChange={event => this.props.subjectSearchSB(event.target.value)}
+                    />
+                
+                
+                
+            </div>
+        </li>
+        <li >
+                <Button text={"buscar"}/>
+                </li>
+ </ul>
  );
  }
 }

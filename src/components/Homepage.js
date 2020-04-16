@@ -16,17 +16,17 @@ export default class Homepage extends React.Component {
   
   render() {
     return (
-      <div>
+      <ul class="container2">
+                  
          
-          
-         
-        <div>
-          <img src={esloganKoopap} className="logo"/>
-        </div>
+            <li class="eslogan">
+          <img src={esloganKoopap} className="eslogan"/>
+          </li>
+        <li class="flex-itemm">
         <SearchBar subjectSearchSB={this.props.subjectSearchHome} />
         <SubjectList subjects={this.props.subjects} />
-        
-      </div>
+        </li>
+      </ul>
     );
   }
 }

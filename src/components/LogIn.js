@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 
 export default class LogIn extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ export default class LogIn extends React.Component {
         <form>
           <input placeholder="Usuario" />
           <input placeholder="Contraseña" />
-          <button type="button" onClick={this.log}>Iniciar Sesión</button>
+          <Button text="Iniciar sesión" action={this.log}/>
         </form>
       </div>
     );

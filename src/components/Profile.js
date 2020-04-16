@@ -24,8 +24,12 @@ export default class Profile extends React.Component {
       
           <div>
             <button type="button" onClick={this.changeProfile}>Cambiar a perfil Profesor</button>
+            <p>
             <Alumno />
+            </p>
+            <p>
             <Profesor />
+            </p>
           </div>
           
           
