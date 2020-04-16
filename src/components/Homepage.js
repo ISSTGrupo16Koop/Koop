@@ -1,35 +1,29 @@
 import React from "react";
 import esloganKoopap from "../esloganKoopap.png";
+import logoKoopap from "../assets/logoKoopap.png";
 import SearchBar from "./SearchBar";
 import SubjectList from "./SubjectList";
+import "../css/Homepage.css";
 export default class Homepage extends React.Component {
   constructor(props) {
     super(props);
-    //this.subjectSearchHome = this.subjectSearchHome.bind(this);
+    this.subjectSearchHome = this.subjectSearchHome.bind(this);
   }
-  /*
+ 
   subjectSearchHome() {
-    this.props.subjectSearchApp;
+    this.props.subjectSearchApp();
   }
-  */
+  
   render() {
     return (
       <div className="image">
+         
+          <img src={logoKoopap} className= "AppLogo" alt="logo"/>
+         
         <div>
           <img src={esloganKoopap} className="App-logo" alt="logo" />
         </div>
-
-        <SearchBar
-          onSubject={subject => {
-            this.subjectSearch(subject);
-          }}
-        />
-        <div>
-          <button type ="submit" onClick={this.search}>Buscar</button>
-        </div>
-
         <SearchBar subjectSearchSB={this.props.subjectSearchHome} />
-
         <SubjectList subjects={this.props.subjects} />
       </div>
     );

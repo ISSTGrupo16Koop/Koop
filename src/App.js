@@ -19,7 +19,7 @@ import { combineReducers } from "redux";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    //this.subjectSearchApp = this.subjectSearchApp.bind(this);
+    this.subjectSearchApp = this.subjectSearchApp.bind(this);
     this.logApp=this.logApp.bind(this);
     this.logOut=this.logOut.bind(this);
     
