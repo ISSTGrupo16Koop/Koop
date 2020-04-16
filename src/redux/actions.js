@@ -4,6 +4,8 @@ export const INIT_SUBJECTS = "INIT_SUBJECTS";
 
 
 export function subjectSearch(subject) {
+  console.log("se ha lanzado la accion");
+  console.log({ subject });
   return { type: SUBJECT_SEARCH, payload: { subject } };
 }
 export function initSubjects(subjects) {

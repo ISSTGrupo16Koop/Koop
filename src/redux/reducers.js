@@ -6,6 +6,8 @@ const defaultState = { data: null, error: null };
 function subjects(state = [], action = {}) {
   switch (action.type) {
     case SUBJECT_SEARCH:
+      console.log("la recibe el reducer");
+      console.log({ action });
       return state.map((subject, i) => {
         return {
           ...subject,

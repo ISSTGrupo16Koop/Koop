@@ -1,8 +1,5 @@
 import React from "react";
-import esloganKoopap from "./esloganKoopap.png";
 import "./App.css";
-import SearchBar from "./components/SearchBar";
-import SubjectList from "./components/SubjectList";
 import LogIn from "./components/LogIn";
 import SingIn from "./components/SingIn";
 import Homepage from "./components/Homepage";
@@ -14,10 +11,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.subjectSearch = this.subjectSearch.bind(this);
+    //this.subjectSearchApp = this.subjectSearchApp.bind(this);
   }
 
-  subjectSearch(subject) {
+  subjectSearchApp(subject) {
+    console.log("Se ha escrito ");
+    console.log("changed", { subject });
     this.props.dispatch(subjectSearch(subject));
   }
 
@@ -53,7 +52,24 @@ class App extends React.Component {
           <Route
             path="/"
             render={props => {
-              return <Homepage subjects={this.props.subjects} />;
+              return (
+                <div>
+                  <div>
+                    <input
+                      placeholder="Asignatura"
+                      onChange={event =>
+                        this.subjectSearchApp(event.target.value)
+                      }
+                    />
+                  </div>
+                  <div>
+                    <Homepage
+                      subjects={this.props.subjects}
+                      subjectSearchHome={this.subjectSearchApp}
+                    />
+                  </div>
+                </div>
+              );
             }}
           />
           <Route path="/logIn" exact component={LogIn} />
@@ -68,4 +84,5 @@ function mapStateToProps(state) {
     ...state
   };
 }
+
 export default connect(mapStateToProps)(App);
