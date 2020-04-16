@@ -1,10 +1,12 @@
 import React from "react";
 import "./App.css";
-import LogIn from "./components/LogIn";
 import SingIn from "./components/SingIn";
 import Homepage from "./components/Homepage";
+import logoKoopap from "./assets/logoKoopap.png";
+import Button from "./components/Button";
 
 import Profile from "./components/Profile";
+import LogIn from "./components/LogIn";
 import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import {
@@ -51,20 +53,42 @@ class App extends React.Component {
     if (this.props.isLogged === false) {
       return (
         <Router>
-          <ul class="ul">
+          <ul class="container">
             <li>
               <Link to="/" replace>
-                <button type="button">Inicio</button>
+                <img src={logoKoopap} class="logo" />
               </Link>
             </li>
-            <li>
+
+            <li class="flex-item">
+              <Link to="/" replace>
+                ¿qué hacemos?
+              </Link>
+            </li>
+            <li class="flex-item">
+              <Link to="/" replace>
+                top profesores
+              </Link>
+            </li>
+            <li class="flex-item">
+              <Link to="/" replace>
+                preguntas frecuentes
+              </Link>
+            </li>
+            <li class="flex-item">
+              <Link to="/" replace>
+                soporte
+              </Link>
+            </li>
+
+            <li class="flex-item">
               <Link to="/logIn" replace>
-                <button type="button">Entrar</button>
+                <Button text="entrar" />
               </Link>
             </li>
-            <li>
+            <li class="flex-item">
               <Link to="/singIn" replace>
-                <button type="button">Registrarse</button>
+                <Button text="registrarse" />
               </Link>
             </li>
           </ul>
@@ -87,15 +111,15 @@ class App extends React.Component {
     } else {
       return (
         <Router>
-          <ul>
-            <li>
+          <ul class="container">
+            <li class="flex-item">
               <Link to="/" replace>
-                <button type="button">Inicio</button>
+                <img src={logoKoopap} class="logo" />
               </Link>
             </li>
-            <li>
+            <li class="flex-item">
               <Link to="/profile" replace>
-                <button type="button">Mi perfil</button>
+                <Button type="button" text="mi perfil" />
               </Link>
             </li>
           </ul>
@@ -106,9 +130,7 @@ class App extends React.Component {
                 subjectSearchHome={this.subjectSearchApp}
               />
               <div>
-                <button type="button" onClick={this.logOut}>
-                  Salir
-                </button>
+                <Button text="salir" onClick={this.logOut} />
               </div>
             </Route>
             <Route exact path="/profile">
@@ -126,23 +148,3 @@ function mapStateToProps(state) {
   };
 }
 export default connect(mapStateToProps)(App);
-/*
-
-                  <div>
-                    <input
-                      placeholder="Asignatura"
-                      onChange={event =>
-                        this.subjectSearchApp(event.target.value)
-                      }
-                    />
-                  </div>
-                  <div>
-                    <form onSubmit={value => this.subjectSearchApp(value)}>
-                      <label>
-                        Asignatura:
-                        <input type="text" subject="subject" />
-                      </label>
-                      <input type="submit" value="Submit" />
-                    </form>
-                  </div>
-                  */

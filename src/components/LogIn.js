@@ -1,6 +1,8 @@
 import React from "react";
 import { communication } from "../communication";
 
+import Button from "./Button";
+import "../css/Cuadrados.css";
 export default class LogIn extends React.Component {
   constructor(props) {
     super(props);

@@ -1,5 +1,6 @@
 import React from "react";
-
+import "../css/Parrafo.css"
+import Button from "./Button"
 export default class Profesor extends React.Component {
   constructor(props) {
     super(props);
@@ -15,15 +16,15 @@ export default class Profesor extends React.Component {
           __________________________________
 
         </p>
-        <p>
-        <b> Perfil de Profesor </b>
-         </p>
-         <p>
-        ¿Qué deseas enseñar hoy?
+        <p class="letras" >
+        perfil de profesor
+        </p>
+         <p class="letras">
+        ¿qué deseas enseñar hoy?
         </p>
         <form>
-        <input placeholder="Clase a ofertar" />
-          <button type="button">¡Ofertar!</button>  
+        <input placeholder="clase a ofertar" class="redondeado"/>
+          <Button type="button" text="¡ofertar!" />  
         </form>
         </div>  
     );

@@ -9,23 +9,24 @@ export default class Homepage extends React.Component {
     super(props);
     this.subjectSearchHome = this.subjectSearchHome.bind(this);
   }
-
+ 
   subjectSearchHome() {
     this.props.subjectSearchApp();
   }
   
   render() {
     return (
-      <div className="image">
+      <ul class="container2">
+                  
          
-          <img src={logoKoopap} className= "AppLogo" alt="logo"/>
-         
-        <div>
-          <img src={esloganKoopap} className="App-logo" alt="logo" />
-        </div>
+            <li class="eslogan">
+          <img src={esloganKoopap} className="eslogan"/>
+          </li>
+        <li class="flex-itemm">
         <SearchBar subjectSearchSB={this.props.subjectSearchHome} />
         <SubjectList subjects={this.props.subjects} />
-      </div>
+        </li>
+      </ul>
     );
   }
 }
