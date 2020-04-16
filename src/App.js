@@ -3,6 +3,8 @@ import "./App.css";
 import LogIn from "./components/LogIn";
 import SingIn from "./components/SingIn";
 import Homepage from "./components/Homepage";
+import logoKoopap from "./assets/logoKoopap.png";
+import Button from "./components/Button";
 
 import Profile from "./components/Profile";
 import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
@@ -55,28 +57,45 @@ class App extends React.Component {
     if (this.props.isLogged === false) {
       return (
         <Router>
-          <ul>
+            
+          <ul class="container">
             <li>
               <Link to="/" replace>
-              <button type="button">
-                Inicio
-               </button>
+              <img src={logoKoopap} class= "logo"/>
+               
               </Link>
             </li>
-            <li>
+           
+            
+            <li class="flex-item">
+              <Link to="/" replace>¿qué hacemos?
+              </Link>
+            </li>
+            <li class="flex-item">
+              <Link to="/" replace>top profesores
+              </Link>
+            </li>
+            <li class="flex-item">
+              <Link to="/" replace>preguntas frecuentes
+              </Link>
+            </li>
+            <li class="flex-item">
+              <Link to="/" replace>soporte
+              </Link>
+            </li>
+           
+            
+            <li class="flex-item" >
               <Link to="/logIn" replace>
-              <button type="button">
-                Entrar
-               </button>
+              <Button  text="entrar"/>
               </Link>
             </li>
-            <li>
+            <li class="flex-item">
               <Link to="/singIn" replace>
-              <button type="button">
-                Registrarse
-               </button>
+              <Button  text="registrarse"/>
               </Link>
             </li>
+            
           </ul>
           <Switch>
             <Route exact path="/">
@@ -98,20 +117,20 @@ class App extends React.Component {
       return (
         <Router>
           <ul>
-            <li>
+            <li class="flex-item">
               <Link to="/" replace>
               <button type="button">
                 Inicio
                </button>
               </Link>
             </li>
-            <li>
+            <li class="flex-item">
               <Link to="/profile" replace>
               <button type="button">
                 Mi perfil         
                </button>
               </Link>
-            </li>
+            </li >
           </ul>
           <Switch>
             <Route exact path="/">

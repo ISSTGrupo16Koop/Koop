@@ -16,15 +16,16 @@ export default class Homepage extends React.Component {
   
   render() {
     return (
-      <div className="image">
+      <div>
          
-          <img src={logoKoopap} className= "AppLogo" alt="logo"/>
+          
          
         <div>
-          <img src={esloganKoopap} className="App-logo" alt="logo" />
+          <img src={esloganKoopap} className="logo"/>
         </div>
         <SearchBar subjectSearchSB={this.props.subjectSearchHome} />
         <SubjectList subjects={this.props.subjects} />
+        
       </div>
     );
   }

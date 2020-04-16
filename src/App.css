@@ -1,3 +1,4 @@
+@import 'https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;700&display=swap';
 .App {
   text-align: center;
 }
@@ -5,6 +6,12 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+.logo { 
+  max-width: 100px;
+  height: auto;
+ margin: 20px;
+ 
 }
 
 .App-header {
@@ -31,3 +38,57 @@
   height: auto;
   justify-content: center;
 }
+
+.container {
+  display: flex ;
+  flex-direction: row ;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.flex-item:nth-of-type(1) { flex-grow: 0.1;  }
+.flex-item:nth-of-type(2) { flex-grow: 5; color:  #0fb399;}
+.flex-item:nth-of-type(3) { flex-grow: 5;color:  #0fb399;}
+.flex-item:nth-of-type(4) { flex-grow: 5; color:  #0fb399;}
+.flex-item:nth-of-type(5) { flex-grow: 5; color: #0fb399;}
+.flex-item:nth-of-type(6) { flex-grow: 0.5; color: white;}
+.flex-item:nth-of-type(7) { flex-grow: 0.5; color: white;}
+
+.flex-item {
+  
+  /*background: tomato;
+  border: 3px solid rgba(0,0,0,.2);
+  line-height: 1px;*/
+  
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+  font-family: 'Baloo Tammudu 2', cursive;
+  
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+li {
+  float: right;
+  
+}
+
+li a {
+  display: block;
+  color: #0fb399;;
+  text-align: center;
+  padding: 0px;
+  text-decoration: none;
+}
+
+/* li a:hover {
+  background-color: #ffffff;
+} */
