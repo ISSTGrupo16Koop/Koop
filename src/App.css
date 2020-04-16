@@ -32,3 +32,6 @@
   height: auto;
   justify-content: center;
 }
+.noPoints{
+  list-style-type: none
+}

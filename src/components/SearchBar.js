@@ -1,4 +1,6 @@
 import React from "react";
+import Button from "./Button"
+import "../css/SearchBar.css";
 export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -13,17 +15,21 @@ export default class SearchBar extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
+    <div class= "wrap">
+      <div class= "search">
+        <div >
           <input
+            type = "text"
+            class="searchTerm"
             placeholder="Asignatura"
             onChange={event => this.props.subjectSearchSB(event.target.value)}
           />
         </div>
         <div>
-          <button>Buscar</button>
+          <Button text={"buscar"}/>
         </div>
       </div>
+    </div>
     );
   }
 }

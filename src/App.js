@@ -2,8 +2,8 @@ import React from "react";
 import "./App.css";
 import SingIn from "./components/SingIn";
 import Homepage from "./components/Homepage";
-import LogIn from "./components/LogIn";
 import Profile from "./components/Profile";
+import LogIn from "./components/LogIn"
 import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import {
@@ -13,7 +13,7 @@ import {
   loggedIn,
 } from "./redux/actions";
 import { combineReducers } from "redux";
-
+import Button from "./components/Button"
 
 
 class App extends React.Component {
@@ -54,20 +54,20 @@ class App extends React.Component {
     if (this.props.isLogged === false) {
       return (
         <Router>
-          <ul>
+          <ul class = "noPoints"> 
             <li>
               <Link to="/" replace>
-                Inicio
+              <Button text={"inicio"}/>
               </Link>
             </li>
             <li>
               <Link to="/logIn" replace>
-                Iniciar sesión
+              <Button text={"entrar"}/>
               </Link>
             </li>
             <li>
               <Link to="/singIn" replace>
-                Registrarse
+              <Button text={"registrarse"}/>
               </Link>
             </li>
           </ul>
@@ -93,12 +93,16 @@ class App extends React.Component {
           <ul>
             <li>
               <Link to="/" replace>
+              <button type="button">
                 Inicio
+               </button>
               </Link>
             </li>
             <li>
               <Link to="/profile" replace>
-                Perfil
+              <button type="button">
+                Mi perfil         
+               </button>
               </Link>
             </li>
           </ul>
