@@ -7,16 +7,23 @@ import logIn from "./components/LogIn";
 import Profile from "./components/Profile";
 import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-import { subjectSearch, initProfessors, initSubjects, loggedIn } from "./redux/actions";
+import {
+  subjectSearch,
+  initProfessors,
+  initSubjects,
+  loggedIn,
+} from "./redux/actions";
 import { combineReducers } from "redux";
+
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-
-    this.subjectSearchApp = this.subjectSearchApp.bind(this);
+    //this.subjectSearchApp = this.subjectSearchApp.bind(this);
     this.logApp=this.logApp.bind(this);
     this.logOut=this.logOut.bind(this);
+    
   }
 
   subjectSearchApp(subject) {
@@ -25,10 +32,10 @@ class App extends React.Component {
     this.props.dispatch(subjectSearch(subject));
   }
 
-  logApp(){
+  logApp() {
     console.log("Se ha escrito");
     this.props.dispatch(loggedIn(true));
-  } 
+  }
 
   logOut(){
 
@@ -44,64 +51,67 @@ class App extends React.Component {
   }
 */
 
-  
-
-render() {
-  if(this.props.isLogged === false){
-  return (
-
-      <Router>
-    
+  render() {
+    if (this.props.isLogged === false) {
+      return (
+        <Router>
           <ul>
             <li>
-              <Link to="/" replace>Inicio</Link>
+              <Link to="/" replace>
+                Inicio
+              </Link>
             </li>
             <li>
-            <Link to="/logIn" replace>Iniciar sesión</Link>
+              <Link to="/logIn" replace>
+                Iniciar sesión
+              </Link>
             </li>
             <li>
-              <Link to="/singIn" replace>Registrarse</Link>
+              <Link to="/singIn" replace>
+                Registrarse
+              </Link>
             </li>
           </ul>
-       <Switch> 
-        <Route exact path="/">
-                  <Homepage
-                    subjects={this.props.subjects}
-                    subjectSearchHome={this.subjectSearchApp}
-                  />
-          </Route>
-        <Route path="/logIn">
-            <LogIn
-              logApp={this.logApp}
-            />
-        </Route>
-        <Route path="/singIn">
-           <SingIn />
-        </Route>
-        </Switch>
-      </Router>
-  );
-  }else{
-    return (
-      <Router>
-        <ul>
-          <li>
-            <Link to="/" replace>Inicio</Link>
-          </li>
-          <li>
-            <Link to="/profile" replace>Perfil</Link>
-           
-          </li>
-        </ul>
-        <Switch>
-          <Route exact path="/">
-            <Homepage
-              subjects={this.props.subjects}
-              subjectSearchHome={this.subjectSearchApp}
+          <Switch>
+            <Route exact path="/">
+              <Homepage
+                subjects={this.props.subjects}
+                subjectSearchHome={this.subjectSearchApp}
+              />
+            </Route>
+            <Route path="/logIn">
+              <LogIn logApp={this.logApp} />
+            </Route>
+            <Route path="/singIn">
+              <SingIn />
+            </Route>
+          </Switch>
+        </Router>
+      );
+    } else {
+      return (
+        <Router>
+          <ul>
+            <li>
+              <Link to="/" replace>
+                Inicio
+              </Link>
+            </li>
+            <li>
+              <Link to="/profile" replace>
+                Perfil
+              </Link>
+            </li>
+          </ul>
+          <Switch>
+            <Route exact path="/">
+              <Homepage
+                subjects={this.props.subjects}
+                subjectSearchHome={this.subjectSearchApp}
               />
                <div>
-            <button type="button" onClick={this.logOut}>Salir</button> 
-            </div>
+                <button type="button" onClick={this.logOut}>Salir</button> 
+               </div>
             
           </Route>
           <Route exact path="/profile">
@@ -116,10 +126,13 @@ render() {
 }
 function mapStateToProps(state) {
   return {
-    ...state
+    ...state,
   };
-}
 
+  
+
+
+}
 export default connect(mapStateToProps)(App);
 /*
 

@@ -12,7 +12,13 @@ export default class Alumno extends React.Component {
     return (
         
         <div>
-            HOLA 
+            <p>
+            <b> Perfil de alumno: </b>
+            </p>
+            <p>
+            Nombre:
+            </p>
+           
         </div>  
     );
     }

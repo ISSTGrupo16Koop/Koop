@@ -51,7 +51,7 @@ function professors(state = [], action = {}) {
   }
 }
 
-function isLogged(state = false, action = {} ){
+function isLogged(state = [isLogged], action = {} ){
   switch (action.type){
 
     case LOGGED_IN:
@@ -59,6 +59,7 @@ function isLogged(state = false, action = {} ){
       console.log(state)
       state= action.payload;
       console.log(state)
+      
       return state;
     
       default: 
