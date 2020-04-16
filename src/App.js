@@ -15,15 +15,12 @@ import {
 } from "./redux/actions";
 import { combineReducers } from "redux";
 
-
-
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.subjectSearchApp = this.subjectSearchApp.bind(this);
-    this.logApp=this.logApp.bind(this);
-    this.logOut=this.logOut.bind(this);
-    
+    this.logApp = this.logApp.bind(this);
+    this.logOut = this.logOut.bind(this);
   }
 
   subjectSearchApp(subject) {
@@ -37,8 +34,7 @@ class App extends React.Component {
     this.props.dispatch(loggedIn(true));
   }
 
-  logOut(){
-
+  logOut() {
     this.props.dispatch(loggedIn(false));
   }
 
@@ -55,26 +51,20 @@ class App extends React.Component {
     if (this.props.isLogged === false) {
       return (
         <Router>
-          <ul>
+          <ul class="ul">
             <li>
               <Link to="/" replace>
-              <button type="button">
-                Inicio
-               </button>
+                <button type="button">Inicio</button>
               </Link>
             </li>
             <li>
               <Link to="/logIn" replace>
-              <button type="button">
-                Entrar
-               </button>
+                <button type="button">Entrar</button>
               </Link>
             </li>
             <li>
               <Link to="/singIn" replace>
-              <button type="button">
-                Registrarse
-               </button>
+                <button type="button">Registrarse</button>
               </Link>
             </li>
           </ul>
@@ -100,16 +90,12 @@ class App extends React.Component {
           <ul>
             <li>
               <Link to="/" replace>
-              <button type="button">
-                Inicio
-               </button>
+                <button type="button">Inicio</button>
               </Link>
             </li>
             <li>
               <Link to="/profile" replace>
-              <button type="button">
-                Mi perfil         
-               </button>
+                <button type="button">Mi perfil</button>
               </Link>
             </li>
           </ul>
@@ -119,29 +105,25 @@ class App extends React.Component {
                 subjects={this.props.subjects}
                 subjectSearchHome={this.subjectSearchApp}
               />
-               <div>
-                <button type="button" onClick={this.logOut}>Salir</button> 
-                 </div>
-            
-          </Route>
-          <Route exact path="/profile">
-            <Profile/>
-
-          </Route>
-        </Switch>
-      </Router>
-    );
+              <div>
+                <button type="button" onClick={this.logOut}>
+                  Salir
+                </button>
+              </div>
+            </Route>
+            <Route exact path="/profile">
+              <Profile />
+            </Route>
+          </Switch>
+        </Router>
+      );
+    }
   }
-}
 }
 function mapStateToProps(state) {
   return {
     ...state,
   };
-
-  
-
-
 }
 export default connect(mapStateToProps)(App);
 /*

@@ -22,6 +22,10 @@
   color: #ffbf33;
 }
 
+.ul {
+  list-style-type: none;
+}
+
 .image {
   width: 200px;
   height: 120px;
