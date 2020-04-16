@@ -3,7 +3,7 @@ import "./App.css";
 import LogIn from "./components/LogIn";
 import SingIn from "./components/SingIn";
 import Homepage from "./components/Homepage";
-import logIn from "./components/LogIn";
+
 import Profile from "./components/Profile";
 import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { connect } from "react-redux";
@@ -20,7 +20,7 @@ import { combineReducers } from "redux";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    //this.subjectSearchApp = this.subjectSearchApp.bind(this);
+    this.subjectSearchApp = this.subjectSearchApp.bind(this);
     this.logApp=this.logApp.bind(this);
     this.logOut=this.logOut.bind(this);
     
@@ -58,17 +58,23 @@ class App extends React.Component {
           <ul>
             <li>
               <Link to="/" replace>
+              <button type="button">
                 Inicio
+               </button>
               </Link>
             </li>
             <li>
               <Link to="/logIn" replace>
-                Iniciar sesión
+              <button type="button">
+                Entrar
+               </button>
               </Link>
             </li>
             <li>
               <Link to="/singIn" replace>
+              <button type="button">
                 Registrarse
+               </button>
               </Link>
             </li>
           </ul>
@@ -94,12 +100,16 @@ class App extends React.Component {
           <ul>
             <li>
               <Link to="/" replace>
+              <button type="button">
                 Inicio
+               </button>
               </Link>
             </li>
             <li>
               <Link to="/profile" replace>
-                Perfil
+              <button type="button">
+                Mi perfil         
+               </button>
               </Link>
             </li>
           </ul>
