@@ -1,23 +1,23 @@
 export const subjects = [
   {
-    id: 1,
-    subject: "Matemáticas"
+    
+    subject: 'Matemáticas'
   },
   {
-    id: 2,
-    subject: "Piano"
+    
+    subject: 'Piano'
   },
   {
-    id: 3,
-    subject: "Física"
+    
+    subject: 'Física'
   },
   {
-    id: 4,
-    subject: "Tenis"
+    
+    subject: 'Tenis'
   },
   {
-    id: 5,
-    subject: "Pintura"
+    
+    subject: 'Pintura'
   }
 ];
 export default subjects;

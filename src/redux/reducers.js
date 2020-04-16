@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { SUBJECT_SEARCH, INIT_PROFESSORS, INIT_SUBJECTS } from "./actions";
+import { SUBJECT_SEARCH, INIT_PROFESSORS, INIT_SUBJECTS, LOGGED_IN} from "./actions";
 
 const defaultState = { data: null, error: null };
 
@@ -8,10 +8,20 @@ function subjects(state = [], action = {}) {
     case SUBJECT_SEARCH:
       console.log("la recibe el reducer");
       console.log({ action });
-      return state.concat([{ id: state.length, subject: action.payload }]);
+      return [
+        ...state,
+        {
+          id: state[state.length+1],
+          subject: action.payload
+        },
+        console.log(state)
+        
+      ] 
+      
     case INIT_SUBJECTS:
       state = action.payload.subjects;
       return state;
+    
 
     default:
       return state;
@@ -41,8 +51,25 @@ function professors(state = [], action = {}) {
   }
 }
 
+function isLogged(state = false, action = {} ){
+  switch (action.type){
+
+    case LOGGED_IN:
+      console.log("la recibe el reducer");
+      console.log(state)
+      state= action.payload;
+      console.log(state)
+      return state;
+    
+      default: 
+      return state;
+  }
+
+}
+
 const GlobalState = combineReducers({
   subjects,
-  professors
+  professors,
+  isLogged
 });
 export default GlobalState;
