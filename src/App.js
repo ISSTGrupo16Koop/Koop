@@ -4,6 +4,7 @@ import LogIn from "./components/LogIn";
 import SingIn from "./components/SingIn";
 import Homepage from "./components/Homepage";
 import logIn from "./components/LogIn";
+import Profile from "./components/Profile";
 import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { subjectSearch, initProfessors, initSubjects, loggedIn } from "./redux/actions";
@@ -30,6 +31,7 @@ class App extends React.Component {
   } 
 
   logOut(){
+
     this.props.dispatch(loggedIn(false));
   }
 
@@ -98,9 +100,13 @@ render() {
               subjectSearchHome={this.subjectSearchApp}
               />
                <div>
-            <button type="button" onClick={this.logOut}>Salir</button>
+            <button type="button" onClick={this.logOut}>Salir</button> 
             </div>
             
+          </Route>
+          <Route exact path="/profile">
+            <Profile/>
+
           </Route>
         </Switch>
       </Router>
