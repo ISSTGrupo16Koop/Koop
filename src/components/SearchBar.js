@@ -2,14 +2,14 @@ import React from "react";
 export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    // this.subjectSearchSB = this.subjectSearchSB.bind(this);
+    this.subjectSearchSB = this.subjectSearchSB.bind(this);
   }
 
-  /*
+  
   subjectSearchSB() {
-    this.props.subjectSearchHome;
+    this.props.subjectSearchHome();
   }
-  */
+  
 
   render() {
     return (
@@ -21,7 +21,7 @@ export default class SearchBar extends React.Component {
           />
         </div>
         <div>
-          <button onClick={console.log("click")}>Buscar</button>
+          <button>Buscar</button>
         </div>
       </div>
     );
