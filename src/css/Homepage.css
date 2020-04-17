@@ -50,3 +50,17 @@
   flex: 1 100%;
   
 }
+
+.wrapperprof{
+
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  justify-content: center;
+  
+}
+
+.wrapperprof > * {
+  padding: 10px;
+  flex: 1 100%;
+}
