@@ -1,17 +1,17 @@
 export const SUBJECT_SEARCH = "SUBJECT_SEARCH";
-export const INIT_PROFESSORS = "INIT_PROFESSORS";
-export const INIT_SUBJECTS = "INIT_SUBJECTS";
-export const LOGGED_IN = "LOGGED_IN";
+export const END_SEARCH = "END_SEARCH";
+export const LOG_IN = "LOGGED_IN";
+export const LOG_OUT = "LOG_OUT";
 
 export function subjectSearch(searching, subject) {
   return { type: SUBJECT_SEARCH, payload: { searching, subject } };
 }
-export function initSubjects(subjects) {
-  return { type: INIT_SUBJECTS, payload: { subjects } };
+export function logIn(isLogged, user) {
+  return { type: LOG_IN, payload: { isLogged, user } };
 }
-export function initProfessors(professors) {
-  return { type: INIT_PROFESSORS, payload: { professors } };
+export function logOut(logout) {
+  return { type: LOG_OUT, payload: { logout } };
 }
-export function loggedIn(isLogged, user) {
-  return { type: LOGGED_IN, payload: { isLogged, user } };
+export function endSearch(searching) {
+  return { type: END_SEARCH, payload: { searching } };
 }
