@@ -1,7 +1,6 @@
 import React from "react";
 import { communication } from "../communication";
 
-import Button from "./Button";
 import "../css/Cuadrados.css";
 export default class LogIn extends React.Component {
   constructor(props) {
@@ -12,9 +11,9 @@ export default class LogIn extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  log = () => {
+  log() {
     this.props.logApp();
-  };
+  }
 
   handleChange(event) {
     const target = event.target;
@@ -25,10 +24,8 @@ export default class LogIn extends React.Component {
     });
   }
   handleSubmit(event) {
-    //console.log(JSON.stringify(this.state));
-    //console.log(this.state);
-    //alert("A name was submitted: " + this.state);
     event.preventDefault();
+    this.log();
     const param =
       "email=" + this.state.email + "&password=" + this.state.password;
     communication("FormLoginServlet", param).then((data) => {
@@ -58,10 +55,9 @@ export default class LogIn extends React.Component {
             value={this.state.password}
             onChange={this.handleChange}
           />
-          <input class ="button" type="submit" value="Iniciar sesión" onClick={this.log} />
+          <input class ="button" type="submit" value="iniciar sesión" onClick={this.log} />
           
         </form>
-        <p>{JSON.stringify(this.state)}</p>
       </div>
     );
   }

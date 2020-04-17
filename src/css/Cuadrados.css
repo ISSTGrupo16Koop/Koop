@@ -1,0 +1,12 @@
+.redondeado {
+  width: auto;
+  border: 3px solid #0fb399;
+  padding: 10px;
+  height: 10px;
+  border-radius: 15px 15px 15px 15px;
+  outline: none;
+  color: #9dbfaf;
+  font-family: "Baloo Tammudu 2", cursive;
+  font-size: 20px;
+  font-weight: bold;
+}
