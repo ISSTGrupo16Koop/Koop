@@ -19,8 +19,7 @@ export default class Homepage extends React.Component {
     let list;
     if (this.props.searching) {
       list = <SubjectList subject={this.props.subject} />;
-    }
-    else if(this.props.isLogged === true){
+    } else if (this.props.isLogged === true) {
       list = (
         <div class="wrapper">
           <div class="masbuscado">¡encuentra TÚ profesor!</div>
@@ -29,7 +28,6 @@ export default class Homepage extends React.Component {
           </div>
         </div>
       );
-
     } else {
       list = (
         <div class="wrapper">
@@ -55,7 +53,4 @@ export default class Homepage extends React.Component {
       </div>
     );
   }
-
-
-  
 }
