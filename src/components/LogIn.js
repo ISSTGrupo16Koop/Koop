@@ -44,7 +44,7 @@ export default class LogIn extends React.Component {
             type="text"
             name="email"
             placeholder="Email"
-            class = "redondeado"
+            class="redondeado"
             value={this.state.email}
             onChange={this.handleChange}
           />
@@ -52,12 +52,11 @@ export default class LogIn extends React.Component {
             type="password"
             name="password"
             placeholder="Contraseña"
-            class = "redondeado"
+            class="redondeado"
             value={this.state.password}
             onChange={this.handleChange}
           />
-          <input class ="button" type="submit" value="iniciar sesión" onClick={this.log} />
-          
+          <input class="button" type="submit" value="iniciar sesión" />
         </form>
       </div>
     );

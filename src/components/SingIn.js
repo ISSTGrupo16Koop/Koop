@@ -26,7 +26,6 @@ export default class SingIn extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    this.log();
     const param =
       "email=" +
       this.state.email +

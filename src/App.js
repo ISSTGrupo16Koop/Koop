@@ -38,6 +38,7 @@ class App extends React.Component {
   }
 
   logApp(user) {
+    this.homeAferLog();
     this.props.dispatch(loggedIn(true, user));
   }
 
@@ -45,6 +46,9 @@ class App extends React.Component {
     this.props.dispatch(loggedIn(false));
   }
 
+  homeAferLog() {
+    document.getElementById("home").click();
+  }
   /*
   componentDidMount() {
     subjects = this.subjects;
@@ -62,10 +66,12 @@ class App extends React.Component {
     let routeSing;
     let routeProfile;
 
+    let route = "/";
+
     if (this.props.isLogged === false) {
       linkLog = (
         <li class="flex-item">
-          <Link to="/logIn" replace>
+          <Link to="/login" replace>
             <Button text="entrar" />
           </Link>
         </li>
@@ -110,7 +116,7 @@ class App extends React.Component {
       <Router>
         <ul class="container">
           <li>
-            <Link to="/" replace>
+            <Link to="/" id="home" replace>
               <img src={logoKoopap} class="logo" />
             </Link>
           </li>

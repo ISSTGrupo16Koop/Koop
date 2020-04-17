@@ -12,39 +12,21 @@ export default class Profile extends React.Component {
   }
 
   render() {
-    if (perfilalumno === true) {
-      return (
-        <div class="wrapper">
-          <p>
-            <Button
-              type="button"
-              action={this.changeProfile}
-              text=" cambiar a perfil profesor "
-            />
-            <Alumno />
-          </p>
-          <p>
-            <Profesor />
-          </p>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <p>
-            <Button
-              type="button"
-              action={this.changeProfile}
-              text=" cambiar a perfil profesor "
-            />
-            <Alumno user={this.props.user} />
-          </p>
-          <p>
-            <Profesor user={this.props.user} />
-          </p>
-        </div>
-      );
-    }
+    return (
+      <div>
+        <p>
+          <Button
+            type="button"
+            action={this.changeProfile}
+            text=" cambiar a perfil profesor "
+          />
+          <Alumno user={this.props.user} />
+        </p>
+        <p>
+          <Profesor user={this.props.user} />
+        </p>
+      </div>
+    );
   }
 
   changeProfile() {
