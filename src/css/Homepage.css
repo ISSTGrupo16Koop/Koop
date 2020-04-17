@@ -6,7 +6,7 @@
 
  .deco{
 
-  width: 700px;
+  width: 950px;
  }
  
 
@@ -45,7 +45,7 @@
 }
 
 .wrapper > * {
-  padding: 60px;
+  padding: 55px;
   flex: 1 100%;
 }
 

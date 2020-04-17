@@ -27,6 +27,11 @@ export default class Homepage extends React.Component {
               <SearchBar subjectSearchSB={this.props.subjectSearchHome} />
               <SubjectList subjects={this.props.subjects} />
               </div>
+          <div class="masbuscado">
+
+          ¡lo más buscado!
+
+          </div>
          <div>
              <img src={deco} class="deco" />
         </div>

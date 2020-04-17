@@ -57,7 +57,7 @@
 .flex-item:nth-of-type(3) { flex-grow: 5;color:  #0fb399;}
 .flex-item:nth-of-type(4) { flex-grow: 5; color:  #0fb399;}
 .flex-item:nth-of-type(5) { flex-grow: 5; color: #0fb399;}
-.flex-item:nth-of-type(6) { flex-grow: 0.5; color: white;}
+.flex-item:nth-of-type(6) { flex-grow: 0.5; color: rgb(189, 189, 189);}
 .flex-item:nth-of-type(7) { flex-grow: 0.5; color: white;}
 
 .flex-item {
