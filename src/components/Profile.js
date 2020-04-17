@@ -19,7 +19,7 @@ export default class Profile extends React.Component {
   render() {
     if (this.props.userView) {
       return (
-        <div class="wrapper">
+        <div class="wrapperprof">
           <p>
             <Button
               type="button"
@@ -34,15 +34,17 @@ export default class Profile extends React.Component {
       );
     } else {
       return (
-        <div class="wrapper">
+        <div class="wrapperprof">
           <p>
             <Button
               type="button"
               action={this.changeProfessor}
               text="cambiar a perfil profesor"
             />
+            </p>
+            <p>
             <Alumno user={this.props.user} />
-          </p>
+            </p>
         </div>
       );
     }

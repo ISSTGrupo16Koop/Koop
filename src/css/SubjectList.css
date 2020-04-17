@@ -3,7 +3,13 @@
   flex-direction: column wrap;
   flex-wrap: wrap;
   justify-content: space-around;
-  
+  }
+
+  .containerFormLogVertical{
+  display: flex ;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   
   }
   
@@ -30,6 +36,7 @@
     font-family: "Baloo Tammudu 2", cursive;
     font-size: 30px;
     font-weight: bold;
+    
    
    
   }
@@ -47,7 +54,21 @@
     font-weight: bold;
     margin: 15px;
     margin-left: 10px;
+  }
+
+  .formLogVertical {
+    width: 300px;
     
+    padding: 0px;
+    height: 30px;
+    border-radius: 30px 30px 30px 30px;
+    outline: none;
+    color: #9dbfaf;
+    font-family: "Baloo Tammudu 2", cursive;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 15px;
+    margin-left: 10px;
   }
   
   .masbuscadosin{

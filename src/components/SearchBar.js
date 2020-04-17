@@ -44,12 +44,14 @@ export default class SearchBar extends React.Component {
           <input
             type="text"
             name="subject"
-            placeholder="¿qué quieres aprender hoy?"
+            placeholder="       ¿qué quieres aprender hoy?"
             class="searchTerm"
             value={this.state.subject}
             onChange={this.handleChange}
           />
+          
           <input class="button" type="submit" value="buscar" />
+         
         </form>
       </div>
     );

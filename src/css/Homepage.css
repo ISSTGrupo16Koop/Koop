@@ -1,13 +1,11 @@
-.eslogan {
-  max-width: 50px;
-}
+
 
 .eslogan {
   max-width: 250px;
 }
 
 .deco {
-  width: 950px;
+  width: 750px;
 }
 
 /* .container2{
@@ -41,26 +39,30 @@
   flex-flow: row wrap;
   text-align: center;
   justify-content: center;
+  /*background: tomato;
+  border: 3px solid rgba(0, 0, 0, 0.2);
+  line-height: 1px;*/
   
   
 }
 
 .wrapper > * {
-  padding: 55px;
+  padding: 40px;
   flex: 1 100%;
   
 }
 
 .wrapperprof{
-
   display: flex;
   flex-flow: row wrap;
   text-align: center;
   justify-content: center;
   
+  
 }
 
 .wrapperprof > * {
-  padding: 10px;
+ 
+  
   flex: 1 100%;
 }

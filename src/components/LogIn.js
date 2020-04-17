@@ -39,27 +39,36 @@ export default class LogIn extends React.Component {
 
   render() {
     return (
-      <div class="wrapper">
-        <form onSubmit={this.handleSubmit}>
-          <input  
+      
+        
+        <form onSubmit={this.handleSubmit} >
+          <ul class="containerFormLogVertical">
+          <li class="formLogVertical">
+          <input 
             type="text"
             name="email"
-            placeholder="Email"
+            placeholder="email"
             class="redondeado"
             value={this.state.email}
             onChange={this.handleChange}
           />
+          </li >
+          <li class="formLogVertical">
           <input
             type="password"
             name="password"
-            placeholder="Contraseña"
+            placeholder="contraseña"
             class="redondeado"
             value={this.state.password}
             onChange={this.handleChange}
           />
+          </li>
+          <li class="formLogVertical">
           <input class="button" type="submit" value="iniciar sesión" />
+          </li>
+          </ul>
         </form>
-      </div>
+      
     );
   }
 }

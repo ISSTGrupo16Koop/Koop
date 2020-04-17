@@ -48,6 +48,8 @@ export default class SingIn extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
+        <ul class="containerFormLogVertical">
+          <li class="formLogVertical">
           <input
             type="text"
             name="email"
@@ -56,6 +58,8 @@ export default class SingIn extends React.Component {
             value={this.state.email}
             onChange={this.handleChange}
           />
+          </li>
+          <li class="formLogVertical">
           <input
             type="text"
             name="name"
@@ -64,6 +68,8 @@ export default class SingIn extends React.Component {
             value={this.state.name}
             onChange={this.handleChange}
           />
+          </li>
+          <li class="formLogVertical">
           <input
             type="password"
             name="password"
@@ -72,6 +78,8 @@ export default class SingIn extends React.Component {
             value={this.state.password}
             onChange={this.handleChange}
           />
+          </li>
+          <li class="formLogVertical">
           <input
             type="text"
             name="location"
@@ -80,6 +88,8 @@ export default class SingIn extends React.Component {
             value={this.state.location}
             onChange={this.handleChange}
           />
+          </li>
+          <li class="formLogVertical">
           <input
             type="text"
             name="description"
@@ -88,7 +98,11 @@ export default class SingIn extends React.Component {
             value={this.state.description}
             onChange={this.handleChange}
           />
+          </li>
+          <li class="formLogVertical">
           <input class="button" type="submit" value="registrarse" />
+          </li>
+          </ul>
         </form>
       </div>
     );
