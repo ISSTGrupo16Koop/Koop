@@ -4,70 +4,55 @@ import logoKoopap from "../assets/logoKoopap.png";
 import SearchBar from "./SearchBar";
 import SubjectList from "./SubjectList";
 import "../css/Homepage.css";
-import deco from "../assets/deco.png"
+import deco from "../assets/deco.png";
 export default class Homepage extends React.Component {
   constructor(props) {
     super(props);
-    this.subjectSearchHome = this.subjectSearchHome.bind(this);
+    this.searchHome = this.searchHome.bind(this);
   }
- 
-  subjectSearchHome() {
-    this.props.subjectSearchApp();
-    this.hola=this.props.isLogged;
-  
+
+  searchHome(subject) {
+    this.props.searchApp(subject);
   }
- 
-  
-  
+
   render() {
+    let list;
+    if (this.props.searching) {
+      list = <SubjectList subject={this.props.subject} />;
+    }
+    else if(this.props.isLogged === true){
+      list = (
+        <div class="wrapper">
+          <div class="masbuscado">¡encuentra TÚ profesor!</div>
+          <div>
+            <img src={deco} class="deco" />
+          </div>
+        </div>
+      );
 
-    
-
-    if(this.props.isLogged === false){
+    } else {
+      list = (
+        <div class="wrapper">
+          <div class="masbuscado">¡lo más buscado!</div>
+          <div>
+            <img src={deco} class="deco" />
+          </div>
+        </div>
+      );
+    }
     return (
       <div class="wrapper">
-                  
-         
-          <div class="eslogann">
-             <img src={esloganKoopap} className="eslogan"/>
-          </div>
-              <div class="flex-itemm">
-              <SearchBar subjectSearchSB={this.props.subjectSearchHome} />
-              <SubjectList subjects={this.props.subjects} />
-              </div>
-          <div class="masbuscado">
-
-          ¡lo más buscado!
-
-          </div>
-         <div>
-             <img src={deco} class="deco" />
+        <div class="eslogann">
+          <img src={esloganKoopap} className="eslogan" />
+        </div>
+        <div class="flex-itemm">
+          <SearchBar searchBar={this.props.searchHome} />
+          {list}
         </div>
       </div>
-
-
     );
-  }else{
-    
-    return (
-      <div class="wrapper">
-                  
-         
-          <div class="eslogann">
-             <img src={esloganKoopap} className="eslogan"/>
-            </div>
-              <div class="flex-itemm">
-              <SearchBar subjectSearchSB={this.props.subjectSearchHome} />
-              <SubjectList subjects={this.props.subjects} />
-              </div>
-          
-
-      </div>
-
-
-    );
-
-
   }
-  }
+
+
+  
 }

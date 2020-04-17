@@ -2,70 +2,48 @@ import React from "react";
 import Profesor from "./Profesor";
 import Alumno from "./Alumno";
 import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
-import Button from "./Button"
+import Button from "./Button";
 
-var perfilalumno= true;
+var perfilalumno = true;
 export default class Profile extends React.Component {
   constructor(props) {
     super(props);
-    this.changeProfile=this.changeProfile.bind(this);
+    this.changeProfile = this.changeProfile.bind(this);
   }
 
-  
   render() {
-    
-    
-    if(perfilalumno === true){
     return (
-      
-          <div class="wrapper">
-            <p>
-            <Button type="button" action={this.changeProfile} text=" cambiar a perfil profesor "/>
-            <Alumno />
-            </p>
-            <p>
-            <Profesor />
-            </p>
-          </div>
-          
-          
-    )
-      }else{
-        
-      return (
-      <div>
-        <button type="button" onClick={this.changeProfile}>Cambiar a perfil Alumno</button>
-        
+      <div class="wrapper">
         <p>
-          Nombre:
+          <Button
+            type="button"
+            action={this.changeProfile}
+            text=" cambiar a perfil profesor "
+          />
+          <Alumno user={this.props.user} />
         </p>
         <p>
-          <Profesor />
+          <Profesor user={this.props.user} />
         </p>
-        
       </div>
-      );
-        }
-    
-    }
+    );
+  }
 
-    changeProfile(){
-      console.log(perfilalumno)
-      perfilalumno = !perfilalumno;
-      
-      return perfilalumno;
-      
-    }
+  changeProfile() {
+    console.log(perfilalumno);
+    perfilalumno = !perfilalumno;
 
-    renderScreen(){
-      if(this.props.perfilalumno === false){
-        this.forceUpdate();
-      }
+    return perfilalumno;
+  }
+
+  renderScreen() {
+    if (this.props.perfilalumno === false) {
+      this.forceUpdate();
     }
-    }
-    
-    
- /*    if(perfilalumno === true){
+  }
+}
+
+/*    if(perfilalumno === true){
       return (
             <div>
               <button type="button" onClick={this.changeProfile}>Cambiar a perfil Profesor</button>
@@ -83,5 +61,3 @@ export default class Profile extends React.Component {
         );
       }
       } */
-
-  

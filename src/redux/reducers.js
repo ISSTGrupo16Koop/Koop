@@ -1,33 +1,38 @@
 import { combineReducers } from "redux";
-import { SUBJECT_SEARCH, INIT_PROFESSORS, INIT_SUBJECTS, LOGGED_IN} from "./actions";
+import {
+  SUBJECT_SEARCH,
+  INIT_PROFESSORS,
+  INIT_SUBJECTS,
+  LOGGED_IN,
+} from "./actions";
 
 const defaultState = { data: null, error: null };
 
-function subjects(state = [], action = {}) {
+function subject(state = [], action = {}) {
   switch (action.type) {
     case SUBJECT_SEARCH:
-      console.log("la recibe el reducer");
-      console.log({ action });
-      return [
-        ...state,
-        {
-          id: state[state.length+1],
-          subject: action.payload
-        },
-        console.log(state)
-        
-      ] 
-      
-    case INIT_SUBJECTS:
-      state = action.payload.subjects;
+      state = action.payload.subject;
       return state;
-    
     default:
       return state;
   }
 }
 
-function professors(state = [], action = {}) {
+function userLogged(state = [], action = {}) {
+  switch (action.type) {
+    case LOGGED_IN:
+      state = action.payload.user;
+      return state;
+    case INIT_PROFESSORS:
+      state = action.payload.professors;
+      return state;
+
+    default:
+      return state;
+  }
+}
+
+function classroom(state = [], action = {}) {
   switch (action.type) {
     /*
     case ADD_SUBJECT:
@@ -41,7 +46,7 @@ function professors(state = [], action = {}) {
         };
 	  });
 	  */
-    case INIT_PROFESSORS: 
+    case INIT_PROFESSORS:
       state = action.payload.professors;
       return state;
 
@@ -50,27 +55,34 @@ function professors(state = [], action = {}) {
   }
 }
 
-function isLogged(state = [], action = {} ){
-  switch (action.type){
-
-    case LOGGED_IN:
-      console.log("la recibe el reducer");
-      console.log(state)
-      state= action.payload;
-      console.log(state)
-      
+function searching(state = [], action = {}) {
+  switch (action.type) {
+    case SUBJECT_SEARCH:
+      state = action.payload.searching;
+      console.log(state);
       return state;
-    
-      default: 
+
+    default:
       return state;
   }
+}
 
+function isLogged(state = [], action = {}) {
+  switch (action.type) {
+    case LOGGED_IN:
+      state = action.payload.isLogged;
+      return state;
 
+    default:
+      return state;
+  }
 }
 
 const GlobalState = combineReducers({
-  subjects,
-  professors,
-  isLogged
+  subject,
+  isLogged,
+  userLogged,
+  classroom,
+  searching,
 });
 export default GlobalState;

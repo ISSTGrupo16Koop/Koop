@@ -1,6 +1,6 @@
 import React from "react";
 import { communication } from "../communication";
-
+import { user } from "../assets/mock-dataUser";
 import "../css/Cuadrados.css";
 import { Route } from "react-router-dom";
 export default class LogIn extends React.Component {
@@ -12,8 +12,8 @@ export default class LogIn extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  log() {
-    this.props.logApp();
+  log(userPass) {
+    this.props.logApp(userPass);
   }
 
   handleChange(event) {
@@ -26,7 +26,8 @@ export default class LogIn extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    this.log();
+    this.log(user);
+
     const param =
       "email=" + this.state.email + "&password=" + this.state.password;
     communication("FormLoginServlet", param).then((data) => {
@@ -38,13 +39,13 @@ export default class LogIn extends React.Component {
 
   render() {
     return (
-      <div>
+      <div class="wrapper">
         <form onSubmit={this.handleSubmit}>
-          <input
+          <input  
             type="text"
             name="email"
             placeholder="Email"
-            class = "redondeado"
+            class="redondeado"
             value={this.state.email}
             onChange={this.handleChange}
           />
@@ -52,13 +53,11 @@ export default class LogIn extends React.Component {
             type="password"
             name="password"
             placeholder="Contraseña"
-            class = "redondeado"
+            class="redondeado"
             value={this.state.password}
             onChange={this.handleChange}
           />
-          
-          <input class ="button" type="submit" value="iniciar sesión" onClick={this.log} />
-          
+          <input class="button" type="submit" value="iniciar sesión" />
         </form>
       </div>
     );
