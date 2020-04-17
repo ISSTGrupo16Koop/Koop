@@ -1,6 +1,6 @@
-@import 'https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;700&display=swap';
-.letras{
- text-decoration: none;
- font-family: 'Baloo Tammudu 2', cursive;
- font-size: 20px;
+@import "https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;700&display=swap";
+.letras {
+  text-decoration: none;
+  font-family: "Baloo Tammudu 2", cursive;
+  font-size: 20px;
 }
