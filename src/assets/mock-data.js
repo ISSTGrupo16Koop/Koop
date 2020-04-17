@@ -1,23 +1,18 @@
-export const subjects = [
+export const subject = [
   {
-    
-    subject: 'Matemáticas'
+    subject: "Matemáticas",
   },
   {
-    
-    subject: 'Piano'
+    subject: "Piano",
   },
   {
-    
-    subject: 'Física'
+    subject: "Física",
   },
   {
-    
-    subject: 'Tenis'
+    subject: "Tenis",
   },
   {
-    
-    subject: 'Pintura'
-  }
+    subject: "Pintura",
+  },
 ];
-export default subjects;
+export default subject;

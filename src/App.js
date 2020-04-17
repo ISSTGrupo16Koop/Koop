@@ -20,20 +20,25 @@ import { combineReducers } from "redux";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.subjectSearchApp = this.subjectSearchApp.bind(this);
+    //this.subjectSearchApp = this.subjectSearchApp.bind(this);
     this.logApp = this.logApp.bind(this);
+    this.searchApp = this.searchApp.bind(this);
     this.logOut = this.logOut.bind(this);
   }
 
+  /*
   subjectSearchApp(subject) {
     console.log("Se ha escrito ");
     console.log("changed", { subject });
     this.props.dispatch(subjectSearch(subject));
   }
+  */
+  searchApp(subject) {
+    this.props.dispatch(subjectSearch(true, subject));
+  }
 
-  logApp() {
-    console.log("Se ha escrito");
-    this.props.dispatch(loggedIn(true));
+  logApp(user) {
+    this.props.dispatch(loggedIn(true, user));
   }
 
   logOut() {
@@ -95,8 +100,9 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/">
               <Homepage
-                subjects={this.props.subjects}
-                subjectSearchHome={this.subjectSearchApp}
+                searchHome={this.searchApp}
+                subject={this.props.subject}
+                searching={this.props.searching}
               />
             </Route>
             <Route path="/logIn">
@@ -126,15 +132,16 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/">
               <Homepage
+                searchHome={this.searchApp}
                 subjects={this.props.subjects}
-                subjectSearchHome={this.subjectSearchApp}
+                searching={this.props.searching}
               />
               <div>
                 <Button text="salir" onClick={this.logOut} />
               </div>
             </Route>
             <Route exact path="/profile">
-              <Profile />
+              <Profile user={this.props.userLogged} />
             </Route>
           </Switch>
         </Router>

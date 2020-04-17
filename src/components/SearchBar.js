@@ -1,13 +1,19 @@
 import React from "react";
 
 import { communication } from "../communication";
+import { subject } from "../assets/mock-dataSubject";
 import "../css/SearchBar.css";
 export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = { subject: "" };
+    this.search = this.search.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  search(subjectMock) {
+    this.props.searchBar(subjectMock);
   }
 
   handleChange(event) {
@@ -20,6 +26,8 @@ export default class SearchBar extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
+    this.search(subject);
+
     const param = "subject=" + this.state.subject;
     communication("SearchSubjectServlet", param).then((data) => {
       if (data["success"] === 200) {

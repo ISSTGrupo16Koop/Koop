@@ -23,7 +23,7 @@ export default class Profesor extends React.Component {
     this.log();
     const param =
       "subject=" + this.state.subject + "&price=" + this.state.price;
-    communication("FormLoginServlet", param).then((data) => {
+    communication("FormCreaClassServlet", param).then((data) => {
       if (data["success"] === 200) {
         console.log(data);
       }

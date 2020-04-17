@@ -1,6 +1,6 @@
 import React from "react";
 import { communication } from "../communication";
-
+import { user } from "../assets/mock-dataUser";
 import "../css/Cuadrados.css";
 export default class LogIn extends React.Component {
   constructor(props) {
@@ -11,8 +11,8 @@ export default class LogIn extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  log() {
-    this.props.logApp();
+  log(userPass) {
+    this.props.logApp(userPass);
   }
 
   handleChange(event) {
@@ -25,7 +25,8 @@ export default class LogIn extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    this.log();
+    this.log(user);
+
     const param =
       "email=" + this.state.email + "&password=" + this.state.password;
     communication("FormLoginServlet", param).then((data) => {
