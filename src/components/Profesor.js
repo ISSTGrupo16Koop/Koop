@@ -34,7 +34,7 @@ export default class Profesor extends React.Component {
     return (
       <div>
         <p>__________________________________</p>
-        <p class="letras">perfil de profesor</p>
+        <p class="letras"><b>perfil de profesor</b></p>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"

@@ -141,6 +141,7 @@ class App extends React.Component {
               searchHome={this.searchApp}
               subject={this.props.subject}
               searching={this.props.searching}
+              isLogged={this.props.isLogged}
             />
           </Route>
           {routeLog}

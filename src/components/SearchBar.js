@@ -10,6 +10,7 @@ export default class SearchBar extends React.Component {
     this.search = this.search.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    
   }
 
   search(subjectMock) {

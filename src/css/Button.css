@@ -2,13 +2,13 @@
 
 .button {
   width: auto;
-  height: 50px;
+  height: 40px;
   color: white;
   position: right;
   vertical-align: middle;
   text-decoration: none;
   font-family: "Baloo Tammudu 2", cursive;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
   border-radius: 45px;

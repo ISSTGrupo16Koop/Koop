@@ -13,7 +13,7 @@ export default class Profile extends React.Component {
 
   render() {
     return (
-      <div>
+      <div class="wrapper">
         <p>
           <Button
             type="button"

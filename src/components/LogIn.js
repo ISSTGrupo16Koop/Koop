@@ -2,6 +2,7 @@ import React from "react";
 import { communication } from "../communication";
 import { user } from "../assets/mock-dataUser";
 import "../css/Cuadrados.css";
+import { Route } from "react-router-dom";
 export default class LogIn extends React.Component {
   constructor(props) {
     super(props);
@@ -38,9 +39,9 @@ export default class LogIn extends React.Component {
 
   render() {
     return (
-      <div>
+      <div class="wrapper">
         <form onSubmit={this.handleSubmit}>
-          <input
+          <input  
             type="text"
             name="email"
             placeholder="Email"
