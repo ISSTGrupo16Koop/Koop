@@ -18,7 +18,17 @@ export default class Homepage extends React.Component {
   render() {
     let list;
     if (this.props.searching) {
-      list = <SubjectList subject={this.props.subject} />;
+      list = (
+        <div>
+          <div class="masbuscado">
+            estas son las clases que hay de{" "}
+            {this.props.subject[0].classlist[0].subject}
+          </div>
+          <div>
+            <SubjectList subject={this.props.subject} />
+          </div>
+        </div>
+      );
     } else if (this.props.isLogged === true) {
       list = (
         <div class="wrapper">

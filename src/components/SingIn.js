@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
-import { communication } from "../communication";
 import "../css/Cuadrados.css";
+import { communicationPost } from "../communicationPost";
 export default class SingIn extends React.Component {
   constructor(props) {
     super(props);
@@ -38,7 +38,7 @@ export default class SingIn extends React.Component {
       "description=" +
       this.state.description;
 
-    communication("FormCreaUserServlet", param).then((data) => {
+    communicationPost("FormCreaUserServlet", param, this.state).then((data) => {
       if (data["success"] === 200) {
         console.log(data);
       }

@@ -1,5 +1,5 @@
 import React from "react";
-import { communication } from "../communication";
+import { communicationGet } from "../communicationGet";
 import { user } from "../assets/mock-dataUser";
 import "../css/Cuadrados.css";
 import { Route } from "react-router-dom";
@@ -30,8 +30,15 @@ export default class LogIn extends React.Component {
 
     const param =
       "email=" + this.state.email + "&password=" + this.state.password;
-    communication("FormLoginServlet", param).then((data) => {
-      if (data["success"] === 200) {
+    communicationGet("FormLoginServlet", param).then((data) => {
+      console.log(data);
+      console.log(data.headers.get("Content-Type"));
+      console.log(data.headers.get("Date"));
+      console.log(data.status);
+      console.log(data.statusText);
+      console.log(data.type);
+      console.log(data.url);
+      if (data.code === 200) {
         console.log(data);
       }
     });

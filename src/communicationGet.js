@@ -1,4 +1,4 @@
-const communication = async (servlet, param) => {
+const communicationGet = async (servlet, param) => {
   const Server = "http://localhost:8080/";
   const Url = Server + servlet + "?" + param;
 
@@ -8,10 +8,10 @@ const communication = async (servlet, param) => {
       credentials: "include",
       "Access-Control-Allow-Origin": "http://localhost:3000",
     },
-    //body: Data,
     method: "GET",
+    mode: "no-cors",
   };
   var response = await fetch(Url, params);
   return response;
 };
-export { communication };
+export { communicationGet };
