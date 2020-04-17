@@ -1,5 +1,12 @@
 import { combineReducers } from "redux";
-import { SUBJECT_SEARCH, LOG_IN, LOG_OUT, END_SEARCH } from "./actions";
+import {
+  SUBJECT_SEARCH,
+  LOG_IN,
+  LOG_OUT,
+  END_SEARCH,
+  USER_PROFESSOR,
+  USER_STUDENT,
+} from "./actions";
 
 const defaultState = { data: null, error: null };
 
@@ -51,7 +58,19 @@ function isLogged(state = false, action = {}) {
       return state;
     case LOG_OUT:
       state = action.payload.logout;
-      console.log(state);
+      return state;
+    default:
+      return state;
+  }
+}
+
+function userView(state = false, action = {}) {
+  switch (action.type) {
+    case USER_PROFESSOR:
+      state = action.payload.view;
+      return state;
+    case USER_STUDENT:
+      state = action.payload.view;
       return state;
     default:
       return state;
@@ -64,5 +83,6 @@ const GlobalState = combineReducers({
   userLogged,
   classroom,
   searching,
+  userView,
 });
 export default GlobalState;

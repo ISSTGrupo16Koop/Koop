@@ -9,7 +9,14 @@ import Profile from "./components/Profile";
 import LogIn from "./components/LogIn";
 import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-import { subjectSearch, endSearch, logIn, logOut } from "./redux/actions";
+import {
+  subjectSearch,
+  endSearch,
+  logIn,
+  logOut,
+  userProfessor,
+  userStudent,
+} from "./redux/actions";
 import { combineReducers } from "redux";
 
 class App extends React.Component {
@@ -19,27 +26,37 @@ class App extends React.Component {
     this.searchApp = this.searchApp.bind(this);
     this.home = this.home.bind(this);
     this.logOut = this.logOut.bind(this);
+    this.changeProfessorApp = this.changeProfessorApp.bind(this);
+    this.changeStudentApp = this.changeStudentApp.bind(this);
   }
   searchApp(subject) {
     this.props.dispatch(subjectSearch(true, subject));
   }
 
   logApp(user) {
-    this.homeAferLog();
     this.props.dispatch(logIn(true, user));
+    this.homeAfterLog();
   }
 
   logOut() {
     this.props.dispatch(logOut(false));
+    this.homeAfterLog();
   }
 
-  homeAferLog() {
+  homeAfterLog() {
     document.getElementById("home").click();
   }
 
   home() {
-    console.log("heyou");
     this.props.dispatch(endSearch(false));
+  }
+
+  changeProfessorApp() {
+    this.props.dispatch(userProfessor(true));
+  }
+
+  changeStudentApp() {
+    this.props.dispatch(userStudent(false));
   }
 
   render() {
@@ -96,7 +113,12 @@ class App extends React.Component {
 
       routeProfile = (
         <Route exact path="/profile">
-          <Profile user={this.props.userLogged} />
+          <Profile
+            user={this.props.userLogged}
+            userView={this.props.userView}
+            changeProfessorApp={this.changeProfessorApp}
+            changeStudentApp={this.changeStudentApp}
+          />
         </Route>
       );
     }

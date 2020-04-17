@@ -33,8 +33,13 @@ export default class Profesor extends React.Component {
   render() {
     return (
       <div>
-        <p>__________________________________</p>
-        <p class="letras"><b>perfil de profesor</b></p>
+        <p class="letras">
+          <b>perfil de profesor</b>
+        </p>
+        <p class="letras">nombre: {this.props.user[0].name} </p>
+        <p class="letras">email: {this.props.user[0].email} </p>
+        <p class="letras">ciudad: {this.props.user[0].location} </p>
+        <p class="letras">descripción: {this.props.user[0].description} </p>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
