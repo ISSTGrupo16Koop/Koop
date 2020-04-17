@@ -17,7 +17,6 @@ import {
   userProfessor,
   userStudent,
 } from "./redux/actions";
-import { combineReducers } from "redux";
 
 class App extends React.Component {
   constructor(props) {

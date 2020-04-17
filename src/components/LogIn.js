@@ -41,10 +41,10 @@ export default class LogIn extends React.Component {
     return (
       <div class="wrapper">
         <form onSubmit={this.handleSubmit}>
-          <input  
+          <input
             type="text"
             name="email"
-            placeholder="Email"
+            placeholder="email"
             class="redondeado"
             value={this.state.email}
             onChange={this.handleChange}
@@ -52,7 +52,7 @@ export default class LogIn extends React.Component {
           <input
             type="password"
             name="password"
-            placeholder="Contraseña"
+            placeholder="contraseña"
             class="redondeado"
             value={this.state.password}
             onChange={this.handleChange}
