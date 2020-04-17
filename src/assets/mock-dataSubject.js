@@ -4,19 +4,19 @@ export const subject = [
     classlist: [
       {
         id: "1",
-        subject: "musica",
+        subject: "música",
         professor: "tim berg",
         price: "804",
       },
       {
         id: "2",
-        subject: "musica",
+        subject: "música",
         professor: "chris martin",
         price: "805",
       },
       {
         id: "3",
-        subject: "musica",
+        subject: "música",
         professor: "macklemore",
         price: "806",
       },

@@ -10,7 +10,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+ 
   }
   
 
@@ -33,7 +33,7 @@
     border-radius: 30px 30px 30px 30px;
     outline: none;
     color: #9dbfaf;
-    font-family: "Baloo Tammudu 2", cursive;
+    font-family: "Baloo Tamma 2", cursive;
     font-size: 30px;
     font-weight: bold;
     
@@ -49,7 +49,7 @@
     border-radius: 30px 30px 30px 30px;
     outline: none;
     color: #9dbfaf;
-    font-family: "Baloo Tammudu 2", cursive;
+    font-family: "Baloo Tamma 2", cursive;
     font-size: 30px;
     font-weight: bold;
     margin: 15px;
@@ -64,7 +64,7 @@
     border-radius: 30px 30px 30px 30px;
     outline: none;
     color: #9dbfaf;
-    font-family: "Baloo Tammudu 2", cursive;
+    font-family: "Baloo Tamma 2", cursive;
     font-size: 30px;
     font-weight: bold;
     margin: 15px;
@@ -74,7 +74,7 @@
   .masbuscadosin{
 
     text-decoration: none;
-    font-family: "Baloo Tammudu 2", cursive;
+    font-family: "Baloo Tamma 2", cursive;
     font-size: 35px;
     color: #0fb399;
   

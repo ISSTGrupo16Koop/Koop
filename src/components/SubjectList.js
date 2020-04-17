@@ -13,10 +13,10 @@ export default class SubjectList extends React.Component {
           <Clase subject={this.props.subject[0].classlist[0]}></Clase>
         </li>
         <li class="redondeadoSubLil">
-          <Clase subject={this.props.subject[0].classlist[0]}></Clase>
+          <Clase subject={this.props.subject[0].classlist[1]}></Clase>
         </li>
         <li class="redondeadoSubLil">
-          <Clase subject={this.props.subject[0].classlist[0]}></Clase>
+          <Clase subject={this.props.subject[0].classlist[2]}></Clase>
         </li>
       </ul>
     );

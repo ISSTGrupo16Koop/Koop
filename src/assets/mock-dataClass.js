@@ -1,7 +1,7 @@
 export const classroom = [
   {
     id: "1",
-    subject: "musica",
+    subject: "música",
     professor: "tim berg",
     price: "804",
   },
