@@ -50,7 +50,7 @@ function professors(state = [], action = {}) {
   }
 }
 
-function isLogged(state = [isLogged], action = {} ){
+function isLogged(state = [], action = {} ){
   switch (action.type){
 
     case LOGGED_IN:

@@ -2,6 +2,7 @@ import React from "react";
 import { communication } from "../communication";
 
 import "../css/Cuadrados.css";
+import { Route } from "react-router-dom";
 export default class LogIn extends React.Component {
   constructor(props) {
     super(props);
@@ -55,6 +56,7 @@ export default class LogIn extends React.Component {
             value={this.state.password}
             onChange={this.handleChange}
           />
+          
           <input class ="button" type="submit" value="iniciar sesión" onClick={this.log} />
           
         </form>

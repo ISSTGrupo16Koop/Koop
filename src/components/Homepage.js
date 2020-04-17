@@ -13,9 +13,17 @@ export default class Homepage extends React.Component {
  
   subjectSearchHome() {
     this.props.subjectSearchApp();
+    this.hola=this.props.isLogged;
+  
   }
+ 
+  
   
   render() {
+
+    
+
+    if(this.props.isLogged === false){
     return (
       <div class="wrapper">
                   
@@ -39,5 +47,27 @@ export default class Homepage extends React.Component {
 
 
     );
+  }else{
+    
+    return (
+      <div class="wrapper">
+                  
+         
+          <div class="eslogann">
+             <img src={esloganKoopap} className="eslogan"/>
+            </div>
+              <div class="flex-itemm">
+              <SearchBar subjectSearchSB={this.props.subjectSearchHome} />
+              <SubjectList subjects={this.props.subjects} />
+              </div>
+          
+
+      </div>
+
+
+    );
+
+
+  }
   }
 }

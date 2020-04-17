@@ -51,6 +51,7 @@ class App extends React.Component {
 
   render() {
     if (this.props.isLogged === false) {
+    
       return (
         <Router>
           <ul class="container">
@@ -97,6 +98,7 @@ class App extends React.Component {
               <Homepage
                 subjects={this.props.subjects}
                 subjectSearchHome={this.subjectSearchApp}
+                isLogged={this.props.isLogged}
               />
             </Route>
             <Route path="/logIn">
@@ -109,7 +111,9 @@ class App extends React.Component {
         </Router>
       );
     } else {
+      
       return (
+        
         <Router>
           <ul class="container">
             <li class="flex-item">
@@ -142,19 +146,31 @@ class App extends React.Component {
                 <Button type="button" text="mi perfil" />
               </Link>
             </li>
+            <li class="flex-item">
+              <Link to="/" replace>
+              <Button text="salir" onClick={this.logOut} 
+                />
+              </Link>
+            </li>
+
           </ul>
           <Switch>
             <Route exact path="/">
               <Homepage
                 subjects={this.props.subjects}
                 subjectSearchHome={this.subjectSearchApp}
+                isLogged={this.props.isLogged}
+                logOut={this.logOut}
+                log={this.logApp}
               />
-              <div>
-                <Button text="salir" onClick={this.logOut} />
-              </div>
+             
+                
+              
             </Route>
             <Route exact path="/profile">
-              <Profile />
+              <Profile 
+              perfilalumno={this.perfilalumno}
+              changeProfile={this.changeProfile}/>
             </Route>
           </Switch>
         </Router>

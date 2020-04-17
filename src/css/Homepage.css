@@ -42,10 +42,12 @@
   font-weight: bold;
   text-align: center;
   justify-content: center;
+  
 }
 
 .wrapper > * {
   padding: 55px;
   flex: 1 100%;
+  
 }
 

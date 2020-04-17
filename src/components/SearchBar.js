@@ -8,7 +8,13 @@ export default class SearchBar extends React.Component {
     this.state = { subject: "" };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.subjectSearch = this.subjectSearch.bind(this);
   }
+
+subjectSearch(){
+
+  this.props.subjectSearchHome();
+}
 
   handleChange(event) {
     const target = event.target;
