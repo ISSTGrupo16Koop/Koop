@@ -11,52 +11,53 @@ import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import {
   subjectSearch,
-  initProfessors,
-  initSubjects,
-  loggedIn,
+  endSearch,
+  logIn,
+  logOut,
+  userProfessor,
+  userStudent,
 } from "./redux/actions";
 import { combineReducers } from "redux";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    //this.subjectSearchApp = this.subjectSearchApp.bind(this);
     this.logApp = this.logApp.bind(this);
     this.searchApp = this.searchApp.bind(this);
+    this.home = this.home.bind(this);
     this.logOut = this.logOut.bind(this);
+    this.changeProfessorApp = this.changeProfessorApp.bind(this);
+    this.changeStudentApp = this.changeStudentApp.bind(this);
   }
-
-  /*
-  subjectSearchApp(subject) {
-    console.log("Se ha escrito ");
-    console.log("changed", { subject });
-    this.props.dispatch(subjectSearch(subject));
-  }
-  */
   searchApp(subject) {
     this.props.dispatch(subjectSearch(true, subject));
   }
 
   logApp(user) {
-    this.homeAferLog();
-    this.props.dispatch(loggedIn(true, user));
+    this.props.dispatch(logIn(true, user));
+    this.homeAfterLog();
   }
 
   logOut() {
-    this.props.dispatch(loggedIn(false));
+    this.props.dispatch(logOut(false));
+    this.homeAfterLog();
   }
 
-  homeAferLog() {
+  homeAfterLog() {
     document.getElementById("home").click();
   }
-  /*
-  componentDidMount() {
-    subjects = this.subjects;
-    professors = this.professors;
-    this.props.dispatch(initSubjects(subjects));
-    this.props.dispatch(initProfessors(professors));
+
+  home() {
+    this.props.dispatch(endSearch(false));
   }
-*/
+
+  changeProfessorApp() {
+    this.props.dispatch(userProfessor(true));
+  }
+
+  changeStudentApp() {
+    this.props.dispatch(userStudent(false));
+  }
 
   render() {
     let linkLog;
@@ -65,9 +66,8 @@ class App extends React.Component {
     let routeLog;
     let routeSing;
     let routeProfile;
-
-    let route = "/";
-
+    let logout;
+    console.log(this.props.isLogged);
     if (this.props.isLogged === false) {
       linkLog = (
         <li class="flex-item">
@@ -105,9 +105,20 @@ class App extends React.Component {
         </li>
       );
 
+      logout = (
+        <li class="flex-item">
+          <Button text="log out" action={this.logOut} />
+        </li>
+      );
+
       routeProfile = (
         <Route exact path="/profile">
-          <Profile user={this.props.userLogged} />
+          <Profile
+            user={this.props.userLogged}
+            userView={this.props.userView}
+            changeProfessorApp={this.changeProfessorApp}
+            changeStudentApp={this.changeStudentApp}
+          />
         </Route>
       );
     }
@@ -116,7 +127,7 @@ class App extends React.Component {
       <Router>
         <ul class="container">
           <li>
-            <Link to="/" id="home" replace>
+            <Link to="/" id="home" onClick={this.home} replace>
               <img src={logoKoopap} class="logo" />
             </Link>
           </li>
@@ -144,6 +155,7 @@ class App extends React.Component {
           {linkLog}
           {linkSing}
           {linkProfile}
+          {logout}
         </ul>
         <Switch>
           <Route exact path="/">
