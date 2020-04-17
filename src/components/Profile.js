@@ -14,6 +14,22 @@ export default class Profile extends React.Component {
   render() {
     if (perfilalumno === true) {
       return (
+        <div class="wrapper">
+          <p>
+            <Button
+              type="button"
+              action={this.changeProfile}
+              text=" cambiar a perfil profesor "
+            />
+            <Alumno />
+          </p>
+          <p>
+            <Profesor />
+          </p>
+        </div>
+      );
+    } else {
+      return (
         <div>
           <p>
             <Button
@@ -25,19 +41,6 @@ export default class Profile extends React.Component {
           </p>
           <p>
             <Profesor user={this.props.user} />
-          </p>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <button type="button" onClick={this.changeProfile}>
-            Cambiar a perfil Alumno
-          </button>
-
-          <p>Nombre:</p>
-          <p>
-            <Profesor />
           </p>
         </div>
       );

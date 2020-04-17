@@ -55,98 +55,104 @@ class App extends React.Component {
 */
 
   render() {
+    let linkLog;
+    let linkSing;
+    let linkProfile;
+    let routeLog;
+    let routeSing;
+    let routeProfile;
+
     if (this.props.isLogged === false) {
-      return (
-        <Router>
-          <ul class="container">
-            <li>
-              <Link to="/" replace>
-                <img src={logoKoopap} class="logo" />
-              </Link>
-            </li>
+      linkLog = (
+        <li class="flex-item">
+          <Link to="/logIn" replace>
+            <Button text="entrar" />
+          </Link>
+        </li>
+      );
 
-            <li class="flex-item">
-              <Link to="/" replace>
-                ¿qué hacemos?
-              </Link>
-            </li>
-            <li class="flex-item">
-              <Link to="/" replace>
-                top profesores
-              </Link>
-            </li>
-            <li class="flex-item">
-              <Link to="/" replace>
-                preguntas frecuentes
-              </Link>
-            </li>
-            <li class="flex-item">
-              <Link to="/" replace>
-                soporte
-              </Link>
-            </li>
+      linkSing = (
+        <li class="flex-item">
+          <Link to="/singIn" replace>
+            <Button text="registrarse" />
+          </Link>
+        </li>
+      );
 
-            <li class="flex-item">
-              <Link to="/logIn" replace>
-                <Button text="entrar" />
-              </Link>
-            </li>
-            <li class="flex-item">
-              <Link to="/singIn" replace>
-                <Button text="registrarse" />
-              </Link>
-            </li>
-          </ul>
-          <Switch>
-            <Route exact path="/">
-              <Homepage
-                searchHome={this.searchApp}
-                subject={this.props.subject}
-                searching={this.props.searching}
-              />
-            </Route>
-            <Route path="/logIn">
-              <LogIn logApp={this.logApp} />
-            </Route>
-            <Route path="/singIn">
-              <SingIn />
-            </Route>
-          </Switch>
-        </Router>
+      routeLog = (
+        <Route path="/logIn">
+          <LogIn logApp={this.logApp} />
+        </Route>
+      );
+
+      routeSing = (
+        <Route path="/singIn">
+          <SingIn />
+        </Route>
       );
     } else {
-      return (
-        <Router>
-          <ul class="container">
-            <li class="flex-item">
-              <Link to="/" replace>
-                <img src={logoKoopap} class="logo" />
-              </Link>
-            </li>
-            <li class="flex-item">
-              <Link to="/profile" replace>
-                <Button type="button" text="mi perfil" />
-              </Link>
-            </li>
-          </ul>
-          <Switch>
-            <Route exact path="/">
-              <Homepage
-                searchHome={this.searchApp}
-                subjects={this.props.subjects}
-                searching={this.props.searching}
-              />
-              <div>
-                <Button text="salir" onClick={this.logOut} />
-              </div>
-            </Route>
-            <Route exact path="/profile">
-              <Profile user={this.props.userLogged} />
-            </Route>
-          </Switch>
-        </Router>
+      linkProfile = (
+        <li class="flex-item">
+          <Link to="/profile" replace>
+            <Button type="button" text="mi perfil" />
+          </Link>
+        </li>
+      );
+
+      routeProfile = (
+        <Route exact path="/profile">
+          <Profile user={this.props.userLogged} />
+        </Route>
       );
     }
+
+    return (
+      <Router>
+        <ul class="container">
+          <li>
+            <Link to="/" replace>
+              <img src={logoKoopap} class="logo" />
+            </Link>
+          </li>
+
+          <li class="flex-item">
+            <Link to="/quehacemos" replace>
+              ¿qué hacemos?
+            </Link>
+          </li>
+          <li class="flex-item">
+            <Link to="/profesores" replace>
+              top profesores
+            </Link>
+          </li>
+          <li class="flex-item">
+            <Link to="/preguntasfrecuentes" replace>
+              preguntas frecuentes
+            </Link>
+          </li>
+          <li class="flex-item">
+            <Link to="/soporte" replace>
+              soporte
+            </Link>
+          </li>
+          {linkLog}
+          {linkSing}
+          {linkProfile}
+        </ul>
+        <Switch>
+          <Route exact path="/">
+            <Homepage
+              searchHome={this.searchApp}
+              subject={this.props.subject}
+              searching={this.props.searching}
+            />
+          </Route>
+          {routeLog}
+          {routeSing}
+          {routeProfile}
+        </Switch>
+      </Router>
+    );
   }
 }
 function mapStateToProps(state) {

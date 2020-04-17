@@ -4,6 +4,7 @@ import logoKoopap from "../assets/logoKoopap.png";
 import SearchBar from "./SearchBar";
 import SubjectList from "./SubjectList";
 import "../css/Homepage.css";
+import deco from "../assets/deco.png";
 export default class Homepage extends React.Component {
   constructor(props) {
     super(props);
@@ -18,17 +19,26 @@ export default class Homepage extends React.Component {
     let list;
     if (this.props.searching) {
       list = <SubjectList subject={this.props.subject} />;
+    } else {
+      list = (
+        <div>
+          <div class="masbuscado">¡lo más buscado!</div>
+          <div>
+            <img src={deco} class="deco" />
+          </div>
+        </div>
+      );
     }
     return (
-      <ul class="container2">
-        <li class="eslogan">
+      <div class="wrapper">
+        <div class="eslogann">
           <img src={esloganKoopap} className="eslogan" />
-        </li>
-        <li class="flex-itemm">
+        </div>
+        <div class="flex-itemm">
           <SearchBar searchBar={this.props.searchHome} />
-        </li>
-        <li>{list}</li>
-      </ul>
+          {list}
+        </div>
+      </div>
     );
   }
 }
