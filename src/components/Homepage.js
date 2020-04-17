@@ -55,8 +55,11 @@ export default class Homepage extends React.Component {
         </div>
         <div class="flex-itemm">
           <SearchBar searchBar={this.props.searchHome} />
+          <p></p>          
           {list}
-        </div>
+         
+          </div>
+        
       </div>
     );
   }

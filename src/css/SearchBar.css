@@ -28,14 +28,19 @@ body {
   width: 50%;
   border: 3px solid #0fb399;
   padding: 5px;
-  height: 22px;
+  height: 24px;
   border-radius: 30px 30px 30px 30px;
   outline: none;
-  color: #9dbfaf;
+  color: #0fb399;
+  text-decoration: none;
+  font-family: "Baloo Tamma 2", cursive;
+  font-size: 17px;
+  font-weight: bold;
+  margin: 5px;
 }
 
 .wrap {
-  width: 30%;
+  width: 20%;
   position: absolute;
   top: 50%;
   left: 50%;

@@ -42,10 +42,12 @@ function searching(state = false, action = {}) {
     case SUBJECT_SEARCH:
       state = action.payload.searching;
       return state;
+      
     case END_SEARCH:
       state = action.payload.searching;
+     
       return state;
-
+    
     default:
       return state;
   }
