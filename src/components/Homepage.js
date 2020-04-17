@@ -4,6 +4,7 @@ import logoKoopap from "../assets/logoKoopap.png";
 import SearchBar from "./SearchBar";
 import SubjectList from "./SubjectList";
 import "../css/Homepage.css";
+import deco from "../assets/deco.png"
 export default class Homepage extends React.Component {
   constructor(props) {
     super(props);
@@ -16,17 +17,22 @@ export default class Homepage extends React.Component {
   
   render() {
     return (
-      <ul class="container2">
+      <div class="wrapper">
                   
          
-            <li class="eslogan">
-          <img src={esloganKoopap} className="eslogan"/>
-          </li>
-        <li class="flex-itemm">
-        <SearchBar subjectSearchSB={this.props.subjectSearchHome} />
-        <SubjectList subjects={this.props.subjects} />
-        </li>
-      </ul>
+          <div class="eslogann">
+             <img src={esloganKoopap} className="eslogan"/>
+          </div>
+              <div class="flex-itemm">
+              <SearchBar subjectSearchSB={this.props.subjectSearchHome} />
+              <SubjectList subjects={this.props.subjects} />
+              </div>
+         <div>
+             <img src={deco} class="deco" />
+        </div>
+      </div>
+
+
     );
   }
 }

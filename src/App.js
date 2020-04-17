@@ -61,22 +61,22 @@ class App extends React.Component {
             </li>
 
             <li class="flex-item">
-              <Link to="/" replace>
+              <Link to="/quehacemos" replace>
                 ¿qué hacemos?
               </Link>
             </li>
             <li class="flex-item">
-              <Link to="/" replace>
+              <Link to="/profesores" replace>
                 top profesores
               </Link>
             </li>
             <li class="flex-item">
-              <Link to="/" replace>
+              <Link to="/preguntasfrecuentes" replace>
                 preguntas frecuentes
               </Link>
             </li>
             <li class="flex-item">
-              <Link to="/" replace>
+              <Link to="/soporte" replace>
                 soporte
               </Link>
             </li>
@@ -115,6 +115,26 @@ class App extends React.Component {
             <li class="flex-item">
               <Link to="/" replace>
                 <img src={logoKoopap} class="logo" />
+              </Link>
+            </li>
+            <li class="flex-item">
+              <Link to="/quehacemos" replace>
+                ¿qué hacemos?
+              </Link>
+            </li>
+            <li class="flex-item">
+              <Link to="/profesores" replace>
+                top profesores
+              </Link>
+            </li>
+            <li class="flex-item">
+              <Link to="/preguntasfrecuentes" replace>
+                preguntas frecuentes
+              </Link>
+            </li>
+            <li class="flex-item">
+              <Link to="/soporte" replace>
+                soporte
               </Link>
             </li>
             <li class="flex-item">

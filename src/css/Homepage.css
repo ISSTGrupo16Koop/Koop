@@ -1,37 +1,51 @@
 
 .eslogan { 
-   max-width: 50px;
+   max-width: 250px;
    
  }
 
- .container2{
+ .deco{
+
+  width: 700px;
+ }
+ 
+
+ /* .container2{
 
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
-  
-  
+ 
+  justify-content: space-around;
   align-items: center;
  }
 
  
- 
 
-.eslogan{
-  min-width: 300px;
-  background: tomato;
-  border: 3px solid rgba(0,0,0,.2);
-  line-height: 1px;
+.eslogann{
+ 
   
   
   align-items: center;
+  align-self: flex-start;
  }
  .flex-itemm{
   
  
-  align-items: center;
-  background: tomato;
-  border: 3px solid rgba(0,0,0,.2);
-  line-height: 1px;
+  
   min-width: 600px;
  }
+ */
+
+ .wrapper {
+  display: flex;  
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: center;
+  justify-content: center;
+}
+
+.wrapper > * {
+  padding: 60px;
+  flex: 1 100%;
+}
+

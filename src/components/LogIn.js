@@ -46,6 +46,7 @@ export default class LogIn extends React.Component {
             type="text"
             name="email"
             placeholder="Email"
+            class = "redondeado"
             value={this.state.email}
             onChange={this.handleChange}
           />
@@ -53,11 +54,12 @@ export default class LogIn extends React.Component {
             type="password"
             name="password"
             placeholder="Contraseña"
+            class = "redondeado"
             value={this.state.password}
             onChange={this.handleChange}
           />
-          <input type="submit" value="Submit" />
-          Iniciar Sesión
+          <input class ="button" type="submit" value="Iniciar sesión" onClick={this.log} />
+          
         </form>
         <p>{JSON.stringify(this.state)}</p>
       </div>

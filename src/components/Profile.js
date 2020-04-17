@@ -18,7 +18,7 @@ export default class Profile extends React.Component {
     if(perfilalumno === true){
     return (
       
-          <div>
+          <div class="wrapper">
             <p>
             <Button type="button" action={this.changeProfile} text=" cambiar a perfil profesor "/>
             <Alumno />
