@@ -1,5 +1,5 @@
 const communicationPost = async (servlet, param, data) => {
-  const Server = "http://localhost:8080/";
+  const Server = "http://localhost:8080/Koopap";
   const Url = Server + servlet + "?" + param;
   const Data = data;
   const params = {

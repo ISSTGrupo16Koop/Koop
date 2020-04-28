@@ -25,7 +25,7 @@ export default class Homepage extends React.Component {
             {this.props.subject[0].classlist[0].subject}
           </div>
           <div>
-            <SubjectList subject={this.props.subject} />
+            <SubjectList class="containerSub" subject={this.props.subject} />
           </div>
         </div>
       );
@@ -55,11 +55,9 @@ export default class Homepage extends React.Component {
         </div>
         <div class="flex-itemm">
           <SearchBar searchBar={this.props.searchHome} />
-          <p></p>          
+          <p></p>
           {list}
-         
-          </div>
-        
+        </div>
       </div>
     );
   }

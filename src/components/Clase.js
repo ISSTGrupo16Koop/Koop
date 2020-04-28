@@ -7,6 +7,7 @@ export default class SubjectList extends React.Component {
   }
 
   render() {
+    console.log("li", this.props.subject);
     return (
       <ul class="containerSub">
         <li class="flex-obj"> profesor: {this.props.subject.professor} </li>
