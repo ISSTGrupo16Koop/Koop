@@ -17,15 +17,21 @@ export default class Homepage extends React.Component {
     this.props.searchApp(subject);
   }
 
-  infoClassHome(subject){
+  infoClassHome(subject) {
     this.props.infoClassApp(subject);
   }
 
   render() {
     let list;
-    if (this.props.infoClass){
-      list=<MostrarClase classroom={this.props.classroom}/>
-    }else if (this.props.searching) {
+    if (this.props.infoClass) {
+      list = (
+        <MostrarClase
+          classroom={this.props.classroom}
+          student={this.props.userLogged}
+          isLogged={this.props.isLogged}
+        />
+      );
+    } else if (this.props.searching) {
       list = (
         <div>
           <div class="masbuscado">
@@ -33,11 +39,15 @@ export default class Homepage extends React.Component {
             {this.props.subject[0].classlist[0].subject}
           </div>
           <div>
-            <SubjectList class="containerSub" infoClassHome={this.infoClassHome} subject={this.props.subject} />
+            <SubjectList
+              class="containerSub"
+              infoClassHome={this.infoClassHome}
+              subject={this.props.subject}
+            />
           </div>
         </div>
       );
-    }else if (this.props.isLogged === true) {
+    } else if (this.props.isLogged === true) {
       list = (
         <div class="wrapper">
           <div class="masbuscado">¡encuentra TÚ profesor!</div>
