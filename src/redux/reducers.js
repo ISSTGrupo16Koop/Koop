@@ -6,6 +6,7 @@ import {
   END_SEARCH,
   USER_PROFESSOR,
   USER_STUDENT,
+  MOSTRAR_CLASE,
 } from "./actions";
 
 const defaultState = { data: null, error: null };
@@ -32,6 +33,11 @@ function userLogged(state = [], action = {}) {
 
 function classroom(state = [], action = {}) {
   switch (action.type) {
+    case MOSTRAR_CLASE:
+      state= action.payload.subject;
+      console.log("La clase es:",state)
+      return state;
+        
     default:
       return state;
   }
@@ -79,6 +85,19 @@ function userView(state = false, action = {}) {
   }
 }
 
+function infoClass(state = false, action = {}) {
+  switch (action.type) {
+    case MOSTRAR_CLASE:
+      state = action.payload.infoClase;
+      console.log("Variable infoClass:",state)
+      return state;
+    default:
+      return state;
+  }
+}
+
+
+
 const GlobalState = combineReducers({
   subject,
   isLogged,
@@ -86,5 +105,6 @@ const GlobalState = combineReducers({
   classroom,
   searching,
   userView,
+  infoClass,
 });
 export default GlobalState;

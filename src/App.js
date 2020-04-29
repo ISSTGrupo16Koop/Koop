@@ -16,6 +16,7 @@ import {
   logOut,
   userProfessor,
   userStudent,
+  mostrarClase,
 } from "./redux/actions";
 
 class App extends React.Component {
@@ -27,6 +28,7 @@ class App extends React.Component {
     this.logOut = this.logOut.bind(this);
     this.changeProfessorApp = this.changeProfessorApp.bind(this);
     this.changeStudentApp = this.changeStudentApp.bind(this);
+    this.infoClassApp= this.infoClassApp.bind(this);
   }
   searchApp(subject) {
     this.props.dispatch(subjectSearch(true, subject));
@@ -48,6 +50,7 @@ class App extends React.Component {
 
   home() {
     this.props.dispatch(endSearch(false));
+    this.props.dispatch(mostrarClase(false,null))
   }
 
   changeProfessorApp() {
@@ -58,6 +61,9 @@ class App extends React.Component {
     this.props.dispatch(userStudent(false));
   }
 
+  infoClassApp(subject){
+    this.props.dispatch(mostrarClase(true,subject));
+  }
   render() {
     let linkLog;
     let linkSing;
@@ -66,7 +72,7 @@ class App extends React.Component {
     let routeSing;
     let routeProfile;
     let logout;
-    console.log(this.props.isLogged);
+    
     if (this.props.isLogged === false) {
       linkLog = (
         <li class="flex-item">
@@ -163,6 +169,9 @@ class App extends React.Component {
               subject={this.props.subject}
               searching={this.props.searching}
               isLogged={this.props.isLogged}
+              infoClassApp={this.infoClassApp}
+              infoClass={this.props.infoClass}
+              classroom={this.props.classroom}
             />
           </Route>
           {routeLog}

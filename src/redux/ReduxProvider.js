@@ -11,6 +11,7 @@ export default class ReduxProvider extends React.Component {
       subject: [],
       userLogged: [],
       classroom: [],
+      infoClass: false,
       isLogged: false,
       searching: false,
     };

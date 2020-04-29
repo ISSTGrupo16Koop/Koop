@@ -5,21 +5,39 @@ import SearchBar from "./SearchBar";
 import SubjectList from "./SubjectList";
 import "../css/Homepage.css";
 import deco from "../assets/deco.png";
+import MostrarClase from "./MostrarClase";
 export default class Homepage extends React.Component {
   constructor(props) {
     super(props);
     this.searchHome = this.searchHome.bind(this);
+    this.infoClassHome = this.infoClassHome.bind(this);
   }
 
   searchHome(subject) {
     this.props.searchApp(subject);
   }
 
+  infoClassHome(subject){
+    this.props.infoClassApp(subject);
+  }
+
   render() {
     let list;
-    if (this.props.searching) {
-      list = <SubjectList subject={this.props.subject} />;
-    } else if (this.props.isLogged === true) {
+    if (this.props.infoClass){
+      list=<MostrarClase classroom={this.props.classroom}/>
+    }else if (this.props.searching) {
+      list = (
+        <div>
+          <div class="masbuscado">
+            estas son las clases que hay de{" "}
+            {this.props.subject[0].classlist[0].subject}
+          </div>
+          <div>
+            <SubjectList class="containerSub" infoClassHome={this.infoClassHome} subject={this.props.subject} />
+          </div>
+        </div>
+      );
+    }else if (this.props.isLogged === true) {
       list = (
         <div class="wrapper">
           <div class="masbuscado">¡encuentra TÚ profesor!</div>
@@ -45,12 +63,24 @@ export default class Homepage extends React.Component {
         </div>
         <div class="flex-itemm">
           <SearchBar searchBar={this.props.searchHome} />
-          <p></p>          
+          <p></p>
           {list}
-         
-          </div>
-        
+        </div>
       </div>
     );
   }
 }
+
+/*if (this.props.searching) {
+  list = (
+    <div>
+      <div class="masbuscado">
+        estas son las clases que hay de{" "}
+        {this.props.subject[0].classlist[0].subject}
+      </div>
+      <div>
+        <SubjectList class="containerSub" infoClassHome={this.infoClassHome} subject={this.props.subject} />
+      </div>
+    </div>
+  );
+}*/

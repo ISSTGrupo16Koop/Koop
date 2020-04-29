@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/Parrafo.css";
 import Button from "./Button";
-import { communication } from "../communication";
+import { communicationPost } from "../communicationPost";
 export default class Profesor extends React.Component {
   constructor(props) {
     super(props);
@@ -23,7 +23,7 @@ export default class Profesor extends React.Component {
     this.log();
     const param =
       "subject=" + this.state.subject + "&price=" + this.state.price;
-    communication("FormCreaClassServlet", param).then((data) => {
+    communicationPost("FormCreaClassServlet", param).then((data) => {
       if (data["success"] === 200) {
         console.log(data);
       }
