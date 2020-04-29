@@ -6,15 +6,13 @@ export default class MostrarClase extends React.Component {
   }
 
   render() {
-
-   
     return (
       <div class="containerSub">
-        <div class="redondeadoSubLil"> 
-         {this.props.classroom.professor}
-         {this.props.classroom.subject}
-         {this.props.classroom.price}
-       </div>
+        <div class="redondeadoSubLil">
+          {this.props.classroom.professor}
+          {this.props.classroom.subject}
+          {this.props.classroom.price}
+        </div>
       </div>
     );
   }

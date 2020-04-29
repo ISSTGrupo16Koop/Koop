@@ -5,7 +5,7 @@ import { communicationPost } from "../communicationPost";
 export default class Profesor extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { subject: "", price: "" };
+    this.state = { subject: "", price: "", prof: "" };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -19,8 +19,9 @@ export default class Profesor extends React.Component {
     });
   }
   handleSubmit(event) {
+    this.state.prof = this.props.user[0].email;
     event.preventDefault();
-    this.log();
+    //this.log();
     const param =
       "subject=" + this.state.subject + "&price=" + this.state.price;
     communicationPost("FormCreaClassServlet", param).then((data) => {
