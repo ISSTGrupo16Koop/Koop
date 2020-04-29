@@ -6,8 +6,6 @@ export default class MostrarClase extends React.Component {
   }
 
   render() {
-
-   
     return (
       <div class="containerClase">
         <div class="infoClase"> 
