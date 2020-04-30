@@ -1,7 +1,8 @@
 import React from "react";
 import "../css/Parrafo.css";
 import Button from "./Button";
-import { communicationPost } from "../communicationPost";
+
+import { communicationGet } from "../communicationGet";
 export default class Profesor extends React.Component {
   constructor(props) {
     super(props);
@@ -19,14 +20,22 @@ export default class Profesor extends React.Component {
     });
   }
   handleSubmit(event) {
-    this.state.prof = this.props.user[0].email;
+    this.state.prof = this.props.user.email;
     event.preventDefault();
-    //this.log();
+    console.log("se va a hacer el fetch");
     const param =
-      "subject=" + this.state.subject + "&price=" + this.state.price;
-    communicationPost("FormCreaClassServlet", param).then((data) => {
-      if (data["success"] === 200) {
+      "subject=" +
+      this.state.subject +
+      "&price=" +
+      this.state.price +
+      "&user=" +
+      this.state.prof;
+    communicationGet("FormCreaClassServlet", param).then((data) => {
+      console.log("data", data);
+      if (data["code"] === 200) {
         console.log(data);
+      } else {
+        console.log("no se ha podido crear la clase");
       }
     });
   }
@@ -37,10 +46,11 @@ export default class Profesor extends React.Component {
         <p class="letras">
           <b>perfil de profesor</b>
         </p>
-        <p class="letras">nombre: {this.props.user[0].name} </p>
-        <p class="letras">email: {this.props.user[0].email} </p>
-        <p class="letras">ciudad: {this.props.user[0].location} </p>
-        <p class="letras">descripción: {this.props.user[0].description} </p>
+        <p class="letras">nombre: {this.props.user.name} </p>
+        <p class="letras">email: {this.props.user.email} </p>
+        <p class="letras">status: {this.props.user.status} koins</p>
+        <p class="letras">ciudad: {this.props.user.location} </p>
+        <p class="letras">descripción: {this.props.user.description} </p>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"

@@ -26,6 +26,9 @@ function userLogged(state = [], action = {}) {
     case LOG_IN:
       state = action.payload.user;
       return state;
+    case LOG_OUT:
+      state = null;
+      return state;
     default:
       return state;
   }
@@ -34,10 +37,9 @@ function userLogged(state = [], action = {}) {
 function classroom(state = [], action = {}) {
   switch (action.type) {
     case MOSTRAR_CLASE:
-      state= action.payload.subject;
-      console.log("La clase es:",state)
+      state = action.payload.subject;
       return state;
-        
+
     default:
       return state;
   }
@@ -48,12 +50,12 @@ function searching(state = false, action = {}) {
     case SUBJECT_SEARCH:
       state = action.payload.searching;
       return state;
-      
+
     case END_SEARCH:
       state = action.payload.searching;
-     
+
       return state;
-    
+
     default:
       return state;
   }
@@ -89,14 +91,12 @@ function infoClass(state = false, action = {}) {
   switch (action.type) {
     case MOSTRAR_CLASE:
       state = action.payload.infoClase;
-      console.log("Variable infoClass:",state)
+      console.log("Variable infoClass:", state);
       return state;
     default:
       return state;
   }
 }
-
-
 
 const GlobalState = combineReducers({
   subject,

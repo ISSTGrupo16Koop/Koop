@@ -11,10 +11,11 @@ export default class Alumno extends React.Component {
         <p class="letras">
           <b> perfil de alumno:</b>
         </p>
-        <p class="letras">nombre: {this.props.user[0].name} </p>
-        <p class="letras">email: {this.props.user[0].email} </p>
-        <p class="letras">ciudad: {this.props.user[0].location} </p>
-        <p class="letras">descripción: {this.props.user[0].description} </p>
+        <p class="letras">nombre: {this.props.user.name} </p>
+        <p class="letras">email: {this.props.user.email} </p>
+        <p class="letras">status: {this.props.user.status} koins </p>
+        <p class="letras">ciudad: {this.props.user.location} </p>
+        <p class="letras">descripción: {this.props.user.description} </p>
       </div>
     );
   }

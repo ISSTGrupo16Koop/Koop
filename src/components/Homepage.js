@@ -35,8 +35,7 @@ export default class Homepage extends React.Component {
       list = (
         <div>
           <div class="masbuscado">
-            estas son las clases que hay de{" "}
-            {this.props.subject[0].classlist[0].subject}
+            estas son las clases que hay de {this.props.subject.name}
           </div>
           <div>
             <SubjectList

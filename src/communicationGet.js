@@ -4,15 +4,16 @@ const communicationGet = async (servlet, param) => {
 
   const params = {
     headers: {
-      "content-type": "aplication/json; charset=utf-8",
-      credentials: "include",
-      "Access-Control-Allow-Origin": "http://localhost:3000",
-      "Access-Control-Allow-Credentials": "true",
+      "Content-Type": "aplication/json; charset=utf-8",
+      // "Access-Control-Allow-Origin": "http://localhost:3000",
+      //"Access-Control-Allow-Credentials": "true",
     },
     method: "GET",
-    mode: "cors",
+    credentials: "include",
+    // mode: "cors",
   };
   var response = await fetch(Url, params);
+  response = await response.json();
   return response;
 };
 export { communicationGet };

@@ -26,20 +26,17 @@ export default class LogIn extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    this.log(user);
 
     const param =
       "email=" + this.state.email + "&password=" + this.state.password;
     communicationGet("FormLoginServlet", param).then((data) => {
-      console.log("datos", data);
-      console.log("1", data.headers.get("Content-Type"));
-      console.log("2", data.headers.get("Date"));
-      console.log("3", data.status);
-      console.log("4", data.statusText);
-      console.log("5", data.type);
-      console.log("6", data.url);
-      if (data.code === 200) {
-        console.log(data);
+      if (data["code"] === 200) {
+        data["user"] = JSON.parse(data["user"]);
+        console.log(data["user"]);
+        this.log(data["user"]);
+      } else if (data["code"] === 401) {
+        console.log("no existe ese usuario");
+      } else {
       }
     });
   }

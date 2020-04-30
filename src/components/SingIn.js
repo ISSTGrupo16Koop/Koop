@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 import "../css/Cuadrados.css";
-import { communicationPost } from "../communicationPost";
+import { communicationGet } from "../communicationGet";
 export default class SingIn extends React.Component {
   constructor(props) {
     super(props);
@@ -29,18 +29,20 @@ export default class SingIn extends React.Component {
     const param =
       "email=" +
       this.state.email +
-      "name=" +
+      "&name=" +
       this.state.name +
       "&password=" +
       this.state.password +
-      "location=" +
+      "&location=" +
       this.state.location +
-      "description=" +
+      "&description=" +
       this.state.description;
 
-    communicationPost("FormCreaUserServlet", param, this.state).then((data) => {
-      if (data["success"] === 200) {
-        console.log(data);
+    communicationGet("FormCreaUserServlet", param).then((data) => {
+      if (data["code"] === 200) {
+        console.log("se ha creado el usuario");
+      } else {
+        console.log("no se ha podido crear el usuario");
       }
     });
   }
@@ -48,60 +50,60 @@ export default class SingIn extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-        <ul class="containerFormLogVertical">
-          <li class="formLogVertical">
-          <input
-            type="text"
-            name="email"
-            placeholder="email"
-            class="redondeado"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-          </li>
-          <li class="formLogVertical">
-          <input
-            type="text"
-            name="name"
-            placeholder="nombre y apellido"
-            class="redondeado"
-            value={this.state.name}
-            onChange={this.handleChange}
-          />
-          </li>
-          <li class="formLogVertical">
-          <input
-            type="password"
-            name="password"
-            placeholder="contraseña"
-            class="redondeado"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-          </li>
-          <li class="formLogVertical">
-          <input
-            type="text"
-            name="location"
-            placeholder="ciudad"
-            class="redondeado"
-            value={this.state.location}
-            onChange={this.handleChange}
-          />
-          </li>
-          <li class="formLogVertical">
-          <input
-            type="text"
-            name="description"
-            placeholder="descripción"
-            class="redondeado"
-            value={this.state.description}
-            onChange={this.handleChange}
-          />
-          </li>
-          <li class="formLogVertical">
-          <input class="button" type="submit" value="registrarse" />
-          </li>
+          <ul class="containerFormLogVertical">
+            <li class="formLogVertical">
+              <input
+                type="text"
+                name="email"
+                placeholder="email"
+                class="redondeado"
+                value={this.state.email}
+                onChange={this.handleChange}
+              />
+            </li>
+            <li class="formLogVertical">
+              <input
+                type="text"
+                name="name"
+                placeholder="nombre y apellido"
+                class="redondeado"
+                value={this.state.name}
+                onChange={this.handleChange}
+              />
+            </li>
+            <li class="formLogVertical">
+              <input
+                type="password"
+                name="password"
+                placeholder="contraseña"
+                class="redondeado"
+                value={this.state.password}
+                onChange={this.handleChange}
+              />
+            </li>
+            <li class="formLogVertical">
+              <input
+                type="text"
+                name="location"
+                placeholder="ciudad"
+                class="redondeado"
+                value={this.state.location}
+                onChange={this.handleChange}
+              />
+            </li>
+            <li class="formLogVertical">
+              <input
+                type="text"
+                name="description"
+                placeholder="descripción"
+                class="redondeado"
+                value={this.state.description}
+                onChange={this.handleChange}
+              />
+            </li>
+            <li class="formLogVertical">
+              <input class="button" type="submit" value="registrarse" />
+            </li>
           </ul>
         </form>
       </div>

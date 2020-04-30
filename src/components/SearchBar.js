@@ -26,12 +26,15 @@ export default class SearchBar extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    this.search(subject);
 
     const param = "subject=" + this.state.subject;
     communicationGet("SearchSubjectServlet", param).then((data) => {
-      if (data["success"] === 200) {
-        console.log(data);
+      if (data["code"] === 200) {
+        data["subject"] = JSON.parse(data["subject"]);
+        console.log(data["subject"]);
+        this.search(data["subject"]);
+      } else if (data["code"] === 400) {
+        console.log("no se ha encontrado esta asignatura");
       }
     });
   }
@@ -48,9 +51,8 @@ export default class SearchBar extends React.Component {
             value={this.state.subject}
             onChange={this.handleChange}
           />
-          
+
           <input class="button" type="submit" value="buscar" />
-         
         </form>
       </div>
     );
