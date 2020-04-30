@@ -28,7 +28,7 @@ class App extends React.Component {
     this.logOut = this.logOut.bind(this);
     this.changeProfessorApp = this.changeProfessorApp.bind(this);
     this.changeStudentApp = this.changeStudentApp.bind(this);
-    this.infoClassApp= this.infoClassApp.bind(this);
+    this.infoClassApp = this.infoClassApp.bind(this);
   }
   searchApp(subject) {
     this.props.dispatch(subjectSearch(true, subject));
@@ -50,7 +50,7 @@ class App extends React.Component {
 
   home() {
     this.props.dispatch(endSearch(false));
-    this.props.dispatch(mostrarClase(false,null))
+    this.props.dispatch(mostrarClase(false, null));
   }
 
   changeProfessorApp() {
@@ -61,8 +61,8 @@ class App extends React.Component {
     this.props.dispatch(userStudent(false));
   }
 
-  infoClassApp(subject){
-    this.props.dispatch(mostrarClase(true,subject));
+  infoClassApp(subject) {
+    this.props.dispatch(mostrarClase(true, subject));
   }
   render() {
     let linkLog;
@@ -72,7 +72,7 @@ class App extends React.Component {
     let routeSing;
     let routeProfile;
     let logout;
-    
+
     if (this.props.isLogged === false) {
       linkLog = (
         <li class="flex-item">
@@ -172,6 +172,7 @@ class App extends React.Component {
               infoClassApp={this.infoClassApp}
               infoClass={this.props.infoClass}
               classroom={this.props.classroom}
+              userLogged={this.props.userLogged}
             />
           </Route>
           {routeLog}
