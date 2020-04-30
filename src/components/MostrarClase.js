@@ -9,24 +9,27 @@ export default class MostrarClase extends React.Component {
     return (
       <div class="containerClase">
         <div class="infoClase"> 
-          <div class="section">
-         <div class="nombre">
+          <div>
+         <div class="flex-mostrar">
          {this.props.classroom.professor}
            </div>
-         <div class="descripción">
-            dsasadsadsa
+         <div class="flex-mostrar">
+            dsasadsadsafdsaaaaaaaaaaaaaaaaaaffdfadadfsfadafs
          </div>
-         <div class="price">
-         {this.props.classroom.price}
+         <div class="flex-mostrar">
+         {this.props.classroom.price} koins
          </div>
+        
 
-         </div>
-         <div>
+         <div class="flex-mostrar">
          {this.props.classroom.subject}
          </div>
          <button class="button">contratar</button> 
-       </div>
-        
+         </div>
+         
+         
+         </div>
+         
       </div>
     );
   }
