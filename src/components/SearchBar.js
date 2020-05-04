@@ -33,7 +33,7 @@ export default class SearchBar extends React.Component {
         data["subject"] = JSON.parse(data["subject"]);
         console.log(data["subject"]);
         this.search(data["subject"]);
-      } else if (data["code"] === 400) {
+      } else {
         console.log("no se ha encontrado esta asignatura");
       }
     });

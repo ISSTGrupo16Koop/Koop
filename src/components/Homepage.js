@@ -11,6 +11,9 @@ export default class Homepage extends React.Component {
     super(props);
     this.searchHome = this.searchHome.bind(this);
     this.infoClassHome = this.infoClassHome.bind(this);
+    this.contractedHome = this.contractedHome.bind(this);
+    this.ratedHome = this.ratedHome.bind(this);
+    this.logHome = this.logHome.bind(this);
   }
 
   searchHome(subject) {
@@ -21,6 +24,17 @@ export default class Homepage extends React.Component {
     this.props.infoClassApp(subject);
   }
 
+  contractedHome() {
+    this.props.contractedApp();
+  }
+  ratedHome() {
+    this.props.ratedApp();
+  }
+
+  logHome(userPass) {
+    this.props.logApp(userPass);
+  }
+
   render() {
     let list;
     if (this.props.infoClass) {
@@ -29,7 +43,11 @@ export default class Homepage extends React.Component {
           classroom={this.props.classroom}
           student={this.props.userLogged}
           isLogged={this.props.isLogged}
-
+          contractedHome={this.contractedHome}
+          ratedHome={this.ratedHome}
+          contracted={this.props.contracted}
+          rated={this.props.rated}
+          logHome={this.logHome}
         />
       );
     } else if (this.props.searching) {

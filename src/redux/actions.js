@@ -5,6 +5,8 @@ export const LOG_OUT = "LOG_OUT";
 export const USER_PROFESSOR = "USER_PROFESSOR";
 export const USER_STUDENT = "USER_STUDENT";
 export const MOSTRAR_CLASE = "MOSTRAR_CLASE";
+export const CONTRACTED = "CONTRACTED";
+export const RATED = "RATED";
 
 export function subjectSearch(searching, subject) {
   return { type: SUBJECT_SEARCH, payload: { searching, subject } };
@@ -26,4 +28,10 @@ export function userStudent(view) {
 }
 export function mostrarClase(infoClase, subject) {
   return { type: MOSTRAR_CLASE, payload: { infoClase, subject } };
+}
+export function contracted(contracted) {
+  return { type: CONTRACTED, payload: { contracted } };
+}
+export function rated(rated) {
+  return { type: RATED, payload: { rated } };
 }

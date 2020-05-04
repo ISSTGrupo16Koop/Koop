@@ -28,7 +28,7 @@ export default class Profile extends React.Component {
             />
           </p>
           <p>
-            <Profesor user={this.props.user} />
+            <Profesor user={this.props.user} classroom={this.props.classroom}/>
           </p>
         </div>
       );
@@ -43,7 +43,7 @@ export default class Profile extends React.Component {
             />
             </p>
             <p>
-            <Alumno user={this.props.user} />
+            <Alumno user={this.props.user} classroom={this.props.classroom}/>
             </p>
         </div>
       );

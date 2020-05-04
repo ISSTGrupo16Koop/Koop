@@ -3,6 +3,7 @@ import "../css/Parrafo.css";
 import Button from "./Button";
 import "../css/Profesor.css";
 import icono from "../assets/usuario.png"
+import horario from "../assets/horario.png"
 
 import { communicationGet } from "../communicationGet";
 export default class Profesor extends React.Component {
@@ -45,16 +46,23 @@ export default class Profesor extends React.Component {
   render() {
     return (
       <div>
-        <div  class="profesorContainer">
-           <img src={icono} class="icono"/>
-             <p class="letras">
-          <b>perfil de profesor</b>
-        </p>
-        <p class="letras">nombre: {this.props.user.name} </p>
-        <p class="letras">email: {this.props.user.email} </p>
-        <p class="letras">status: {this.props.user.status} koins</p>
-        <p class="letras">ciudad: {this.props.user.location} </p>
-        <p class="letras">descripción: {this.props.user.description} </p>
+        <div class="profesorContainer">
+        <div class="profesor profesor6"><img src={icono} class="icono"/></div>
+           <div class="profesor profesor1">
+             <div class="cestaprofe" class="masbuscado">nombre: {this.props.user.name}</div>
+             <div class="cestaprofe" class="masbuscado">balance: {this.props.user.status} koins</div>
+             <div class="cestaprofe2" class="masbuscado">ciudad: {this.props.user.location}</div>
+             <div class="cestaprofe2" class="masbuscado">correo: {this.props.user.email}</div>
+           </div>
+           <div class="profesor profesor2">
+             <img src={horario}/>
+           </div>
+           <div class="profesor profesor3">
+             <div class="cestaprofe" class="masbuscado"> <i>"{this.props.user.description}"</i></div>
+             <div class="cestaprofe" class="masbuscado">valoración: </div>
+           </div>
+           
+      <div class="profesor4">
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -64,7 +72,8 @@ export default class Profesor extends React.Component {
             value={this.state.subject}
             onChange={this.handleChange}
           />
-          <input
+          <p></p>
+           <input
             type="text"
             name="price"
             placeholder="¿cuanto quieres cobrar?"
@@ -72,8 +81,10 @@ export default class Profesor extends React.Component {
             value={this.state.price}
             onChange={this.handleChange}
           />
+          <p></p>
           <input class="button" type="submit" value="¡ofertar clase!" />
         </form>
+        </div>
         </div>
       </div>
     );
