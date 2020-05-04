@@ -18,8 +18,8 @@ export default class MostrarClase extends React.Component {
   contracted() {
     this.props.contractedHome();
   }
-  rated() {
-    this.props.ratedHome();
+  rated(val) {
+    this.props.ratedHome(val);
   }
 
   log(userPass) {
@@ -57,7 +57,7 @@ export default class MostrarClase extends React.Component {
       "classId=" + this.props.classroom.id + "&rated=" + this.state.val;
     communicationGet("FormRateClassServlet", param).then((data) => {
       if (data["code"] === 200) {
-        this.rated();
+        this.rated(true);
       } else {
         console.log("no se ha podido valorar");
       }
@@ -109,6 +109,11 @@ export default class MostrarClase extends React.Component {
       );
     } else if (this.props.rated) {
       console.log("valorada");
+      contract = null;
+      rate = null;
+      this.rated(false);
+    } else {
+      console.log("finalizado y reseteado");
       contract = null;
       rate = null;
     }
