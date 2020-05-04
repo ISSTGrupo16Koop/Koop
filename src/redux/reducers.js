@@ -81,8 +81,6 @@ function contracted(state = false, action = {}) {
   switch (action.type) {
     case CONTRACTED:
       state = action.payload.contracted;
-      console.log(state);
-
       return state;
     default:
       return state;
@@ -117,7 +115,6 @@ function infoClass(state = false, action = {}) {
   switch (action.type) {
     case MOSTRAR_CLASE:
       state = action.payload.infoClase;
-      console.log("Variable infoClass:", state);
       return state;
     default:
       return state;

@@ -74,6 +74,7 @@ class App extends React.Component {
   }
 
   contractedApp() {
+    console.log("hola");
     this.props.dispatch(contracted(true));
   }
 

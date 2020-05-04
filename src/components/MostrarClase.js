@@ -6,10 +6,11 @@ export default class MostrarClase extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmitRate = this.handleSubmitRate.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.contracted = this.contracted.bind(this);
     this.log = this.log.bind(this);
     this.rated = this.rated.bind(this);
-    this.state = { student: "" };
+    this.state = { student: "", val: "" };
   }
   contracted() {
     this.props.contractedHome();
@@ -20,6 +21,16 @@ export default class MostrarClase extends React.Component {
 
   log(userPass) {
     this.props.logHome(userPass);
+  }
+
+  handleChange(event) {
+    const target = event.target;
+    const val = target.name;
+    const value = target.value;
+    this.setState({
+      [val]: value,
+    });
+    console.log(this.state);
   }
 
   handleSubmit() {
@@ -36,18 +47,18 @@ export default class MostrarClase extends React.Component {
       }
     });
   }
-  handleSubmitRate(rated) {
-    const param = "classId=" + this.props.classroom.id + "&rated=" + rated;
-    console.log(rated);
-    /*
+  handleSubmitRate(event) {
+    event.preventDefault();
+    console.log(event);
+    const param =
+      "classId=" + this.props.classroom.id + "&rated=" + this.state.val;
     communicationGet("FormRateClassServlet", param).then((data) => {
       if (data["code"] === 200) {
         this.rated();
       } else {
-        console.log("no se ha podido contratar");
+        console.log("no se ha podido valorar");
       }
     });
-    */
   }
   render() {
     let contract;
@@ -63,23 +74,37 @@ export default class MostrarClase extends React.Component {
     ) {
       this.state.student = this.props.student.email;
       contract = (
-        <form onSubmit={this.handleSubmit}>
-          <input class="button" type="submit" value="contratar" />
-        </form>
+        <div>
+          <div>
+            <form onSubmit={this.handleSubmit}>
+              <input class="button" type="submit" value="contratar" />
+            </form>
+          </div>
+        </div>
       );
-    } else if (this.props.contracted) {
+    } else if (this.props.contracted && !this.props.rated) {
       contract = "se ha contratado correctamente";
+      console.log("contratada");
       rate = (
         <div>
-          <button type="button" onClick={this.handleSubmitRate(1)}>
-            1
-          </button>
-          <button type="button" onClick={this.handleSubmitRate(2)}>
-            2
-          </button>
+          <div>
+            <div>
+              <form onSubmit={this.handleSubmitRate}>
+                <input
+                  type="text"
+                  name="val"
+                  placeholder="puntuación 1-5"
+                  value={this.state.val}
+                  onChange={this.handleChange}
+                />
+                <input class="button" type="submit" value="valorar clase" />
+              </form>
+            </div>
+          </div>
         </div>
       );
     } else if (this.props.rated) {
+      console.log("valorada");
       contract = null;
       rate = null;
     }
