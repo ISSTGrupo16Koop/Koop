@@ -78,8 +78,8 @@ class App extends React.Component {
     this.props.dispatch(contracted(true));
   }
 
-  ratedApp() {
-    this.props.dispatch(rated(true));
+  ratedApp(val) {
+    this.props.dispatch(rated(val));
   }
   render() {
     let linkLog;

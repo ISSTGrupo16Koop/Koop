@@ -27,8 +27,8 @@ export default class Homepage extends React.Component {
   contractedHome() {
     this.props.contractedApp();
   }
-  ratedHome() {
-    this.props.ratedApp();
+  ratedHome(val) {
+    this.props.ratedApp(val);
   }
 
   logHome(userPass) {
