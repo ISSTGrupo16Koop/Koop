@@ -14,6 +14,8 @@ export default class ReduxProvider extends React.Component {
       infoClass: false,
       isLogged: false,
       searching: false,
+      contracted: false,
+      rated: false,
     };
     this.store = this.configureStore();
   }

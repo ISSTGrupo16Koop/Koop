@@ -7,6 +7,8 @@ import {
   USER_PROFESSOR,
   USER_STUDENT,
   MOSTRAR_CLASE,
+  CONTRACTED,
+  RATED,
 } from "./actions";
 
 const defaultState = { data: null, error: null };
@@ -25,6 +27,7 @@ function userLogged(state = [], action = {}) {
   switch (action.type) {
     case LOG_IN:
       state = action.payload.user;
+      console.log(state);
       return state;
     case LOG_OUT:
       state = null;
@@ -74,6 +77,29 @@ function isLogged(state = false, action = {}) {
   }
 }
 
+function contracted(state = false, action = {}) {
+  switch (action.type) {
+    case CONTRACTED:
+      state = action.payload.contracted;
+      console.log(state);
+
+      return state;
+    default:
+      return state;
+  }
+}
+
+function rated(state = false, action = {}) {
+  switch (action.type) {
+    case RATED:
+      state = action.payload.rated;
+      console.log(state);
+      return state;
+    default:
+      return state;
+  }
+}
+
 function userView(state = false, action = {}) {
   switch (action.type) {
     case USER_PROFESSOR:
@@ -106,5 +132,7 @@ const GlobalState = combineReducers({
   searching,
   userView,
   infoClass,
+  contracted,
+  rated,
 });
 export default GlobalState;

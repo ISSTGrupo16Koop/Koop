@@ -17,18 +17,23 @@ import {
   userProfessor,
   userStudent,
   mostrarClase,
+  contracted,
+  rated,
 } from "./redux/actions";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.logApp = this.logApp.bind(this);
+    this.logAppContract = this.logAppContract.bind(this);
     this.searchApp = this.searchApp.bind(this);
     this.home = this.home.bind(this);
     this.logOut = this.logOut.bind(this);
     this.changeProfessorApp = this.changeProfessorApp.bind(this);
     this.changeStudentApp = this.changeStudentApp.bind(this);
     this.infoClassApp = this.infoClassApp.bind(this);
+    this.contractedApp = this.contractedApp.bind(this);
+    this.ratedApp = this.ratedApp.bind(this);
   }
   searchApp(subject) {
     this.props.dispatch(subjectSearch(true, subject));
@@ -37,6 +42,9 @@ class App extends React.Component {
   logApp(user) {
     this.props.dispatch(logIn(true, user));
     this.homeAfterLog();
+  }
+  logAppContract(user) {
+    this.props.dispatch(logIn(true, user));
   }
 
   logOut() {
@@ -63,6 +71,14 @@ class App extends React.Component {
 
   infoClassApp(subject) {
     this.props.dispatch(mostrarClase(true, subject));
+  }
+
+  contractedApp() {
+    this.props.dispatch(contracted(true));
+  }
+
+  ratedApp() {
+    this.props.dispatch(rated(true));
   }
   render() {
     let linkLog;
@@ -173,6 +189,11 @@ class App extends React.Component {
               infoClass={this.props.infoClass}
               classroom={this.props.classroom}
               userLogged={this.props.userLogged}
+              contractedApp={this.contractedApp}
+              ratedApp={this.ratedApp}
+              contracted={this.props.contracted}
+              rated={this.props.rated}
+              logApp={this.logAppContract}
             />
           </Route>
           {routeLog}
