@@ -96,6 +96,7 @@ export default class MostrarClase extends React.Component {
                 <input
                   type="text"
                   name="val"
+                  class="redondeado"
                   placeholder="puntuación 1-5"
                   value={this.state.val}
                   onChange={this.handleChange}
@@ -137,9 +138,11 @@ export default class MostrarClase extends React.Component {
          <div class="cesta" class="masbuscado">precio: {this.props.classroom.price} koins</div>
           </div>
        <div class="caja caja2"><p class="letraverde">este es el horario de {this.props.classroom.professor.name}.</p><p class="letraverde">¡contacta con él y recibe cuanto antes tu clase de matemáticas!</p></div>
-       <div class="caja caja3">{contract}</div>
+       <div class="caja caja3">{contract}{rate}</div>
        <div class="caja caja4"><img src={horario}/></div>
-       <div class="caja caja5"><p class="masbuscado"><img class="stars" src={stars}/></p></div>
+       <div class="caja caja5">valoración de miguel: {this.props.classroom.professor.professorvaloration}</div>
+     
+       
 </div>
 
    
