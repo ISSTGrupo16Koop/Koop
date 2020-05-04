@@ -1,5 +1,8 @@
 import React from "react";
 import { communicationGet } from "../communicationGet";
+import "../css/MostrarClase.css";
+import horario from "../assets/horario.png";
+import stars from "../assets/stars.png";
 export default class MostrarClase extends React.Component {
   constructor(props) {
     super(props);
@@ -32,30 +35,36 @@ export default class MostrarClase extends React.Component {
       );
     }
     return (
-      <div class="containerClase">
-        <div class="infoClase"> 
-          <div>
-         <div class="flex-mostrar">
-         {this.props.classroom.professor}
-           </div>
-         <div class="flex-mostrar">
-            dsasadsadsafdsaaaaaaaaaaaaaaaaaaffdfadadfsfadafs
-         </div>
-         <div class="flex-mostrar">
-         {this.props.classroom.price} koins
-         </div>
-        
+     /*  <div class="containerClase">
+        <div class="infoClase">
+          <div class="section">
+          <div class="mostrarClaseGrid">
+            <div class="nombre">{this.props.classroom.professor.name}</div>
+            <div class="descripcion">dsasadsadsa</div>
+            <div class="koins">{this.props.classroom.price}</div>
+            <div class="horario">
+              aaaaaaaaaaaaa
+            </div>
+          </div>
+          {contract}
+        </div>
+        </div>
+      </div> */
+      <div class="grapper">
+        <div class="caja caja1">
+         <div class="cesta" class="masbuscado">{this.props.classroom.professor.name}</div>
+         <div class="cesta" class="masbuscado">"{this.props.classroom.professor.description}"</div>
+         <div class="cesta" class="masbuscado">precio: {this.props.classroom.price} koins</div>
+    </div>
+       <div class="caja caja2"><p class="letraverde">este es el horario de {this.props.classroom.professor.name}.</p><p class="letraverde">¡contacta con él y recibe cuanto antes tu clase de matemáticas!</p></div>
+       <div class="caja caja3">{contract}</div>
+       <div class="caja caja4"><img src={horario}/></div>
+       <div class="caja caja5"><p class="masbuscado"><img class="stars" src={stars}/></p></div>
+</div>
 
-         <div class="flex-mostrar">
-         {this.props.classroom.subject}
-         </div>
-         <button class="button">contratar</button> 
-         </div>
-         {contract}
-         
-         </div>
-         
-      </div>
+   
+
+
     );
   }
 }

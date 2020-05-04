@@ -1,0 +1,75 @@
+
+/*nombre descripcion koins*/
+.caja1 {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+  }
+  
+  
+  .grapper {
+    border: 5px solid #0fb399;
+    border-radius: 130px;
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+  }
+  
+  /*Estructura de cada celda*/
+  .caja {
+    border: 2px /*solid*/;
+    /*border-color:  #ffa94d;*/
+    border-radius: 40px;
+    padding: 1em;
+    
+  }
+  
+  /*nombre descripcion koins*/
+  .caja1 {
+    grid-column: 1 / 4;
+  }
+
+  /*texto*/
+  .caja2 {
+      grid-column:  2;
+  }
+
+  /* contratar */
+  .caja3{
+      grid-column: 1;
+      height: 50px;
+  }
+  /* horario */
+  .caja4{
+      grid-column: 3/4;
+      grid-row-start: 3;
+      grid-row-end: 4; 
+      
+  }
+
+  /* valoracion */
+
+  .caja5{
+      grid-column: 1;
+      grid-row-start: 3;
+      grid-row-end: 4;
+  }
+
+  /* estructura de la fila de nombnre descripcion coins */
+  .cesta{
+    border: 2px solid;
+    /*border-color: #ffec99;*/
+    border-radius: 5px;
+    background-color: #fff9db;
+    padding: 1em;
+  }
+  
+  .stars{
+    height: 150px;
+    width: 400px;
+
+  }

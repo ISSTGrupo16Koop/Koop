@@ -1,5 +1,3 @@
-import MostrarClase from "../components/MostrarClase";
-
 export const SUBJECT_SEARCH = "SUBJECT_SEARCH";
 export const END_SEARCH = "END_SEARCH";
 export const LOG_IN = "LOGGED_IN";

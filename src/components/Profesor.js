@@ -1,6 +1,8 @@
 import React from "react";
 import "../css/Parrafo.css";
 import Button from "./Button";
+import "../css/Profesor.css";
+import icono from "../assets/usuario.png"
 
 import { communicationGet } from "../communicationGet";
 export default class Profesor extends React.Component {
@@ -43,7 +45,9 @@ export default class Profesor extends React.Component {
   render() {
     return (
       <div>
-        <p class="letras">
+        <div  class="profesorContainer">
+           <img src={icono} class="icono"/>
+             <p class="letras">
           <b>perfil de profesor</b>
         </p>
         <p class="letras">nombre: {this.props.user.name} </p>
@@ -70,6 +74,7 @@ export default class Profesor extends React.Component {
           />
           <input class="button" type="submit" value="¡ofertar clase!" />
         </form>
+        </div>
       </div>
     );
   }

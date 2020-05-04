@@ -29,6 +29,7 @@ export default class Homepage extends React.Component {
           classroom={this.props.classroom}
           student={this.props.userLogged}
           isLogged={this.props.isLogged}
+
         />
       );
     } else if (this.props.searching) {

@@ -118,21 +118,7 @@
     margin-top: 30px;
   }
 
-  .nombre{
-    float:left;
-    width: 20%;
-  }
-
-  .descripcion{
-    float:left;
-    width:50%;
-  }
-
-  .price{
-    float:left;
-    width:30%;
-  }
-
+ 
   section:after {
     content: "";
     display: table;
