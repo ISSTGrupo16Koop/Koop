@@ -1,6 +1,8 @@
 import React from "react";
 import icono from "../assets/usuario.png";
 import horario from "../assets/horario.png";
+import pieza from "../assets/estrella.png";
+
 export default class Alumno extends React.Component {
   constructor(props) {
     super(props);
@@ -8,6 +10,45 @@ export default class Alumno extends React.Component {
 
 
   render() {
+    let piezas;
+    let numeropiezas=Math.round(this.props.user.professorValoration);
+    console.log("numero piezas antes",numeropiezas)
+    if(numeropiezas===1){
+      piezas=(
+     <div><img src={pieza}/></div>
+     );
+   }else if(numeropiezas===2){
+     piezas=(
+       <div><img src={pieza}/>
+             <img src={pieza}/></div>
+       );
+   }else if(numeropiezas===3){
+    piezas=(
+       <div><img src={pieza}/>
+             <img src={pieza}/>
+             <img src={pieza}/></div>
+       );
+   }else if(numeropiezas===4){
+     piezas=(
+       <div><img src={pieza}/>
+             <img src={pieza}/>
+             <img src={pieza}/>
+             <img src={pieza}/></div>
+       );
+   }else if(numeropiezas===5){
+      piezas=(
+       <div><img src={pieza}/>
+             <img src={pieza}/>
+             <img src={pieza}/>
+             <img src={pieza}/>
+             <img src={pieza}/></div>
+       );
+   }else{
+     piezas=(
+       <div>0/5</div>
+     );
+     
+   }
     return (
       <div>
         <div class="profesorContainer">
@@ -23,7 +64,7 @@ export default class Alumno extends React.Component {
            </div>
            <div class="profesor profesor3">
              <div class="cestaprofe" class="masbuscado"> <i>"{this.props.user.description}"</i></div>
-             <div class="cestaprofe" class="masbuscado">valoración: </div>
+             <div class="cestaprofe" class="masbuscado">valoración: {piezas} </div>
            </div>
            
     

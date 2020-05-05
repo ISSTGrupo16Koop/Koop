@@ -2,8 +2,9 @@ import React from "react";
 import { communicationGet } from "../communicationGet";
 import "../css/MostrarClase.css";
 import horario from "../assets/horario.png";
-import stars from "../assets/stars.png";
+import pieza from "../assets/estrella.png";
 import Schedule from "./Schedule";
+
 export default class MostrarClase extends React.Component {
   constructor(props) {
     super(props);
@@ -14,6 +15,7 @@ export default class MostrarClase extends React.Component {
     this.log = this.log.bind(this);
     this.rated = this.rated.bind(this);
     this.state = { student: "", val: "" };
+    
   }
   contracted() {
     this.props.contractedHome();
@@ -63,12 +65,55 @@ export default class MostrarClase extends React.Component {
       }
     });
   }
+
+  
   render() {
     let contract;
     let rate;
+    let piezas;
     console.log(this.props.contracted);
     console.log(this.props.rated);
-
+    let numeropiezas=Math.round(this.props.classroom.professor.professorValoration);
+    console.log("numero piezas antes",numeropiezas)
+    if(numeropiezas===1){
+      piezas=(
+     <div><img src={pieza}/></div>
+     );
+   }else if(numeropiezas===2){
+     piezas=(
+       <div><img src={pieza}/>
+             <img src={pieza}/></div>
+       );
+   }else if(numeropiezas===3){
+    piezas=(
+       <div><img src={pieza}/>
+             <img src={pieza}/>
+             <img src={pieza}/></div>
+       );
+   }else if(numeropiezas===4){
+     piezas=(
+       <div><img src={pieza}/>
+             <img src={pieza}/>
+             <img src={pieza}/>
+             <img src={pieza}/></div>
+       );
+   }else if(numeropiezas===5){
+      piezas=(
+       <div><img src={pieza}/>
+             <img src={pieza}/>
+             <img src={pieza}/>
+             <img src={pieza}/>
+             <img src={pieza}/></div>
+       );
+   }else{
+     piezas=(
+       <div>0/5</div>
+     );
+     
+   }
+   console.log("Valoración",numeropiezas)
+   console.log("professorValoration",this.props.classroom.professor.professorValoration)
+    
     if (
       this.props.isLogged &&
       this.props.student.email != this.props.classroom.professor.email &&
@@ -85,7 +130,7 @@ export default class MostrarClase extends React.Component {
           </div>
         </div>
       );
-    } else if (this.props.contracted && !this.props.rated) {
+    } else if (this.props.contracted) {
       contract = "se ha contratado correctamente";
       console.log("contratada");
       rate = (
@@ -97,7 +142,7 @@ export default class MostrarClase extends React.Component {
                   type="text"
                   name="val"
                   class="redondeado"
-                  placeholder="puntuación 1-5"
+                  placeholder="Puntúa esta clase del 1 al 5"
                   value={this.state.val}
                   onChange={this.handleChange}
                 />
@@ -107,7 +152,7 @@ export default class MostrarClase extends React.Component {
           </div>
         </div>
       );
-    } else if (this.props.rated) {
+    }else if (this.props.rated){
       console.log("valorada");
       contract = null;
       rate = null;
@@ -136,6 +181,7 @@ export default class MostrarClase extends React.Component {
         </div>
         </div>
       </div> */
+      
       <div class="grapper">
         <div class="caja caja1">
          <div class="cesta" class="masbuscado">{this.props.classroom.professor.name}</div>
@@ -145,7 +191,7 @@ export default class MostrarClase extends React.Component {
        <div class="caja caja2"><p class="letraverde">este es el horario de {this.props.classroom.professor.name}.</p><p class="letraverde">¡contacta con él y recibe cuanto antes tu clase de matemáticas!</p></div>
        <div class="caja caja3">{contract}{rate}</div>
        <div class="caja caja4"><img src={horario}/></div>
-       <div class="caja caja5">valoración de miguel: {this.props.classroom.professor.professorvaloration}</div>
+       <div class="caja caja5" ><p class="masbuscado">valoración de {this.props.classroom.professor.name}:{piezas} </p></div>
      
        
 </div>

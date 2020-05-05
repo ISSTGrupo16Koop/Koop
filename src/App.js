@@ -141,6 +141,7 @@ class App extends React.Component {
             changeProfessorApp={this.changeProfessorApp}
             changeStudentApp={this.changeStudentApp}
             classroom={this.props.classroom}
+            
           />
         </Route>
       );
