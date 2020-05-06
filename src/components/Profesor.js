@@ -25,7 +25,6 @@ export default class Profesor extends React.Component {
   handleSubmit(event) {
     this.state.prof = this.props.user.email;
     event.preventDefault();
-    console.log("se va a hacer el fetch");
     const param =
       "subject=" +
       this.state.subject +
@@ -46,7 +45,6 @@ export default class Profesor extends React.Component {
   render() {
     let piezas;
     let numeropiezas=Math.round(this.props.user.professorValoration);
-    console.log("numero piezas antes",numeropiezas)
     if(numeropiezas===1){
       piezas=(
      <div><img src={pieza}/></div>

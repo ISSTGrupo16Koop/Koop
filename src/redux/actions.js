@@ -7,6 +7,7 @@ export const USER_STUDENT = "USER_STUDENT";
 export const MOSTRAR_CLASE = "MOSTRAR_CLASE";
 export const CONTRACTED = "CONTRACTED";
 export const RATED = "RATED";
+export const END_CONTRACT ="END_CONTRACT";
 
 export function subjectSearch(searching, subject) {
   return { type: SUBJECT_SEARCH, payload: { searching, subject } };
@@ -34,4 +35,8 @@ export function contracted(contracted) {
 }
 export function rated(rated) {
   return { type: RATED, payload: { rated } };
+}
+
+export function endContract(endState){
+  return {type: END_CONTRACT, payload: {endState}};
 }

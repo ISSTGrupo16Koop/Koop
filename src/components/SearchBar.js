@@ -31,7 +31,7 @@ export default class SearchBar extends React.Component {
     communicationGet("SearchSubjectServlet", param).then((data) => {
       if (data["code"] === 200) {
         data["subject"] = JSON.parse(data["subject"]);
-        console.log(data["subject"]);
+     
         this.search(data["subject"]);
       } else {
         console.log("no se ha encontrado esta asignatura");

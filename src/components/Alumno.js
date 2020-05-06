@@ -12,7 +12,7 @@ export default class Alumno extends React.Component {
   render() {
     let piezas;
     let numeropiezas=Math.round(this.props.user.professorValoration);
-    console.log("numero piezas antes",numeropiezas)
+   
     if(numeropiezas===1){
       piezas=(
      <div><img src={pieza}/></div>

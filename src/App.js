@@ -19,6 +19,7 @@ import {
   mostrarClase,
   contracted,
   rated,
+  endContract,
 } from "./redux/actions";
 
 class App extends React.Component {
@@ -34,6 +35,11 @@ class App extends React.Component {
     this.infoClassApp = this.infoClassApp.bind(this);
     this.contractedApp = this.contractedApp.bind(this);
     this.ratedApp = this.ratedApp.bind(this);
+    this.endContractApp=this.endContractApp.bind(this);
+  }
+
+  endContractApp(){
+    this.props.dispatch(endContract(false));
   }
   searchApp(subject) {
     this.props.dispatch(subjectSearch(true, subject));
@@ -73,9 +79,8 @@ class App extends React.Component {
     this.props.dispatch(mostrarClase(true, subject));
   }
 
-  contractedApp() {
-    console.log("hola");
-    this.props.dispatch(contracted(true));
+  contractedApp(hired) {
+    this.props.dispatch(contracted(hired));
   }
 
   ratedApp(val) {
@@ -197,6 +202,7 @@ class App extends React.Component {
               contracted={this.props.contracted}
               rated={this.props.rated}
               logApp={this.logAppContract}
+              endContractApp={this.endContractApp}
             />
           </Route>
           {routeLog}

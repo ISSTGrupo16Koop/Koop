@@ -14,6 +14,11 @@ export default class Homepage extends React.Component {
     this.contractedHome = this.contractedHome.bind(this);
     this.ratedHome = this.ratedHome.bind(this);
     this.logHome = this.logHome.bind(this);
+    this.endContractHome=this.endContractHome.bind(this);
+  }
+
+  endContractHome(){
+    this.props.endContractApp();
   }
 
   searchHome(subject) {
@@ -24,8 +29,8 @@ export default class Homepage extends React.Component {
     this.props.infoClassApp(subject);
   }
 
-  contractedHome() {
-    this.props.contractedApp();
+  contractedHome(hired) {
+    this.props.contractedApp(hired);
   }
   ratedHome(val) {
     this.props.ratedApp(val);
@@ -48,6 +53,7 @@ export default class Homepage extends React.Component {
           contracted={this.props.contracted}
           rated={this.props.rated}
           logHome={this.logHome}
+          endContractHome={this.endContractHome}
         />
       );
     } else if (this.props.searching) {

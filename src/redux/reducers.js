@@ -9,6 +9,7 @@ import {
   MOSTRAR_CLASE,
   CONTRACTED,
   RATED,
+  END_CONTRACT,
 } from "./actions";
 
 const defaultState = { data: null, error: null };
@@ -27,7 +28,6 @@ function userLogged(state = [], action = {}) {
   switch (action.type) {
     case LOG_IN:
       state = action.payload.user;
-      console.log(state);
       return state;
     case LOG_OUT:
       state = null;
@@ -42,6 +42,12 @@ function classroom(state = [], action = {}) {
     case MOSTRAR_CLASE:
       state = action.payload.subject;
       return state;
+    case END_CONTRACT:
+      console.log("estado previo",state)
+      state.finished= true;
+      state.rated = true;
+      console.log("estado modificado",state)
+    return state;
 
     default:
       return state;
@@ -81,6 +87,12 @@ function contracted(state = false, action = {}) {
   switch (action.type) {
     case CONTRACTED:
       state = action.payload.contracted;
+      
+      return state;
+     case END_CONTRACT:
+      console.log("El estado endContract es",state)
+      state= action.payload.endState; 
+      console.log("El estado endContract es",state)
       return state;
     default:
       return state;
@@ -91,7 +103,9 @@ function rated(state = false, action = {}) {
   switch (action.type) {
     case RATED:
       state = action.payload.rated;
-      console.log(state);
+      return state;
+     case END_CONTRACT:
+      state= action.payload.endState; 
       return state;
     default:
       return state;

@@ -14,13 +14,20 @@ export default class MostrarClase extends React.Component {
     this.contracted = this.contracted.bind(this);
     this.log = this.log.bind(this);
     this.rated = this.rated.bind(this);
-    this.state = { student: "", val: "" };
+    this.state = { student: "", val: "", finished: false, hire: false };
+    this.endContract = this.endContract.bind(this);
     
   }
-  contracted() {
-    this.props.contractedHome();
+
+  endContract(){
+    this.props.endContractHome();
+  }
+  contracted(hired) {
+    console.log("la funcion contracted es",hired)
+    this.props.contractedHome(hired);
   }
   rated(val) {
+    console.log("la funcion rated es",this.props.rated)
     this.props.ratedHome(val);
   }
 
@@ -35,18 +42,18 @@ export default class MostrarClase extends React.Component {
     this.setState({
       [val]: value,
     });
-    console.log(this.state);
+
   }
 
   handleSubmit() {
     const param =
       "classId=" + this.props.classroom.id + "&student=" + this.state.student;
-    console.log(param);
     communicationGet("FormContractClassServlet", param).then((data) => {
       if (data["code"] === 200) {
         data["user"] = JSON.parse(data["user"]);
         this.log(data["user"]);
-        this.contracted();
+        this.contracted(true);
+        console.log("contracted handlesubmit",this.props.contracted)
       } else {
         console.log("no se ha podido contratar");
       }
@@ -54,12 +61,13 @@ export default class MostrarClase extends React.Component {
   }
   handleSubmitRate(event) {
     event.preventDefault();
-    console.log(event);
     const param =
       "classId=" + this.props.classroom.id + "&rated=" + this.state.val;
     communicationGet("FormRateClassServlet", param).then((data) => {
       if (data["code"] === 200) {
+
         this.rated(true);
+   
       } else {
         console.log("no se ha podido valorar");
       }
@@ -71,10 +79,11 @@ export default class MostrarClase extends React.Component {
     let contract;
     let rate;
     let piezas;
-    console.log(this.props.contracted);
-    console.log(this.props.rated);
     let numeropiezas=Math.round(this.props.classroom.professor.professorValoration);
-    console.log("numero piezas antes",numeropiezas)
+    console.log("state finished",this.state.finished)
+    console.log("render contract",this.props.contracted)
+    console.log("render rated:", this.props.rated)
+    console.log("render hire:",this.state.hire)
     if(numeropiezas===1){
       piezas=(
      <div><img src={pieza}/></div>
@@ -111,15 +120,14 @@ export default class MostrarClase extends React.Component {
      );
      
    }
-   console.log("Valoración",numeropiezas)
-   console.log("professorValoration",this.props.classroom.professor.professorValoration)
+   
     
     if (
       this.props.isLogged &&
       this.props.student.email != this.props.classroom.professor.email &&
-      !this.props.contracted &&
-      !this.props.classroom.finished
+      !this.props.contracted  && !this.props.classroom.finished                  
     ) {
+      console.log("se busca")
       this.state.student = this.props.student.email;
       contract = (
         <div>
@@ -130,9 +138,11 @@ export default class MostrarClase extends React.Component {
           </div>
         </div>
       );
-    } else if (this.props.contracted) {
+    } else if (this.props.isLogged &&
+      this.props.student.email != this.props.classroom.professor.email && this.props.contracted && !this.props.rated) {
+        console.log("se contrata")
+        console.log("state finished",this.state.finished)
       contract = "se ha contratado correctamente";
-      console.log("contratada");
       rate = (
         <div>
           <div>
@@ -152,15 +162,15 @@ export default class MostrarClase extends React.Component {
           </div>
         </div>
       );
-    }else if (this.props.rated){
-      console.log("valorada");
-      contract = null;
+    }else if (this.props.isLogged &&
+      this.props.student.email != this.props.classroom.professor.email && this.props.rated){
+        console.log("se ha puntuado")
+        contract = null;
       rate = null;
-      this.rated(false);
+      this.endContract();
     } else {
-      console.log("finalizado y reseteado");
-      contract = null;
-      rate = null;
+      console.log("No se cumple ningún if")
+      
     }
 
     return (
@@ -189,7 +199,7 @@ export default class MostrarClase extends React.Component {
          <div class="cesta" class="masbuscado">precio: {this.props.classroom.price} koins</div>
           </div>
        <div class="caja caja2"><p class="letraverde">este es el horario de {this.props.classroom.professor.name}.</p><p class="letraverde">¡contacta con él y recibe cuanto antes tu clase de matemáticas!</p></div>
-       <div class="caja caja3">{contract}{rate}</div>
+       <div class="caja caja3" class="letraverde">{contract}{rate}</div>
        <div class="caja caja4"><img src={horario}/></div>
        <div class="caja caja5" ><p class="masbuscado">valoración de {this.props.classroom.professor.name}:{piezas} </p></div>
      
